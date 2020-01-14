@@ -1,0 +1,101 @@
+/* ------------------------------------------------------
+@File: Default Styles
+@Template Name: Crf Charity
+@Author: TemplateMr
+@Developed By: Emran Khan
+@Developer URL: http://emran-khan.com
+
+This file contains the styling for the actual theme, this
+is the file you need to edit to change the look of the
+theme.
+------------------------------------------------------- */
+
+/* ====================================================== 
+
+Table of Content:
+01/ Variables
+02/ Prefix
+03/ Header
+04/ Slider
+05/ meet
+06/ causes
+07/ about
+08/ event
+09/ testimonial
+10/ news
+11/ from
+12/ from 
+13/ counter
+14/ team 
+15/ widget 
+16/ gallery
+17/ Footer
+18/ Responsive  
+
+===================================================== */ 
+
+/*----------------------------------------------------*/
+@import "variables";
+/*----------------------------------------------------*/  
+@import "prefix";
+/*----------------------------------------------------*/  
+@import "animat";
+/*----------------------------------------------------*/ 
+@import "header"; 
+/*----------------------------------------------------*/  
+@import "slider";  
+/*----------------------------------------------------*/ 
+@import "meet";  
+/*----------------------------------------------------*/ 
+@import "causes";   
+/*----------------------------------------------------*/ 
+@import "about";   
+/*----------------------------------------------------*/ 
+@import "event";   
+/*----------------------------------------------------*/  
+@import "testimonial";   
+/*----------------------------------------------------*/ 
+@import "news";   
+/*----------------------------------------------------*/  
+@import "from";   
+/*----------------------------------------------------*/  
+@import "faq";   
+/*----------------------------------------------------*/ 
+@import "counter";   
+/*----------------------------------------------------*/  
+@import "team";   
+/*----------------------------------------------------*/ 
+@import "widget";   
+/*----------------------------------------------------*/   
+@import "gallery";   
+/*----------------------------------------------------*/   
+
+
+
+
+
+/*----------------------------------------------------*/   
+@import "footer";
+/*----------------------------------------------------*/  
+@import "responsive";
+/*---------------------------------------------------- */  
+
+/*All CSS call*/ 
+@import "../css/bootstrap.min.css"; /* Bootstrap CSS */
+/* Icon CSS */
+@import "../css/font-awesome.min.css";  
+//@import url('https://use.fontawesome.com/releases/v5.5.0/css/all.css'); 
+@import "../vendors/flat-icon/flaticon.css";
+/* Extra Plugins CSS */ 
+@import "../vendors/animate-css/animate.css"; 
+@import "../vendors/owl-carousel/owl.carousel.min.css";  
+@import "../vendors/magnify-popup/magnific-popup.css";  
+@import "../vendors/jquery-ui/jquery-ui.min.css"; 
+@import "../vendors/bootstrap-selector/nice-select.css"; 
+@import "../vendors/lightbox/simpleLightbox.css";   
+/* Rev slider css */  
+@import "../vendors/revolution/css/settings.css";
+@import "../vendors/revolution/css/layers.css"; 
+@import "../vendors/revolution/css/navigation.css";    
+/* Font family link */ 
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:400,600,700|Source+Sans+Pro:400,600,700,900&display=swap');

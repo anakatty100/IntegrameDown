@@ -1,0 +1,200 @@
+//volunteer_area
+.volunteer_area{
+	display: block;
+	overflow: hidden;
+	padding-top: 90px;
+	padding-bottom: 120px;
+	.volunteer{
+		background: #eeeeee;
+		display: block;
+		overflow: hidden;
+		text-align: center;
+		padding: 35px 20px 40px;
+		min-height: 205px;
+		margin-bottom: 30px;
+		a{
+			font: 600 20px/1 $font;
+			color: $heding;
+			display: block;
+			text-transform: uppercase;
+			padding-top: 32px;
+			&:hover, &:focus{
+				color: $bc;
+			}
+		}
+	}
+}
+.va_2{
+	padding-top: 120px;
+	padding-bottom: 90px;
+}
+//volunteer_area
+
+
+/* Customers_more */
+.customers_more{  
+    display: block;
+    position: relative;
+    overflow: hidden;
+    background: url("../images/subscriber_bg.jpg") repeat; 
+    padding: 55px 0;
+    z-index: 1;
+    &:after{
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        display: block;
+        background-color: rgba(255, 205, 0, 0.749);
+        z-index: -1;
+    }
+    h3{
+        font: 600 34px/50px $font;
+        color: #fff;
+        display: inline-block;
+        float: left;
+        max-width: 775px;
+    }
+    .theme_btn{
+        float: right;
+        min-width: 194px;
+        background: #fff;
+		color: $bc;
+        margin-top: 20px;
+		line-height: 50px;
+        &:before{
+            background: $bc;
+        }
+    }
+}
+.cm_2{
+	margin-top: 140px;  
+}
+/* End Customers_more */ 
+
+
+/* faq_area */ 
+.faq_area{
+    display: block;
+    overflow: hidden;
+    background: url("../images/faq-bg.png") no-repeat center top;
+    padding: 80px 0 50px;  
+    .faq_items{
+        padding-bottom: 60px;
+        padding-left: 35px;
+        h4{
+            font: 600 24px/35px $font;
+            color: $heding;
+            padding-bottom: 10px;
+        }
+        p{ 
+            color: rgba(36, 36, 37, 0.702);
+        }
+    }
+}
+/* faq_area */ 
+
+//make_donation
+.make_donation{
+	display: block;
+	overflow: hidden;
+	padding-bottom: 100px;
+	.donation_faq{
+		background: url("../images/faq-bg-2.png") no-repeat;
+		background-size: cover;
+		padding: 90px 65px;
+		h2{
+			text-align: center;
+			color: #fff;
+			font: 600 30px/1 $font;
+		}
+		p{
+			text-align: center;
+			color: #fff;
+			max-width: 480px;
+			margin: 0 auto;
+			padding-top: 15px;
+			padding-bottom: 75px;
+		}
+		.donation_c{
+			margin-bottom: 30px;
+			li{
+				display: inline-block;
+				a{
+					font: 600 18px/44px $font2;
+					color: #fdaa65;
+					text-align: center;
+					min-width: 91px;
+					display: block;
+					background: #fff;
+					margin-bottom: 5px;
+					&:hover, &:focus, &.active{
+						background: #ef5603;
+						color: #fff;
+						box-shadow: 0px 20px 36px 0px rgba(32, 50, 118, 0.35);
+					}
+				}
+			}
+			h6{
+				font: 600 18px/44px $font2; 
+				background: #8da5ff;
+				color: #fff;
+				padding: 0 20px;
+				padding-right: 0;
+				input{
+					border: 0;
+					background-color: transparent;
+					font: 400 14px/44px $font2;
+					color: #c2cfff;
+					height: auto;
+					width: 100px;
+					padding: 0 20px;
+					box-shadow: none;
+					outline: none;
+					padding-right: 0;
+					@include placeholder{ 
+						color: #c2cfff;
+					}  
+					&:focus{ 
+						@include placeholder{
+							color: transparent;
+						} 
+					}
+				}
+			}
+		}
+		.dc_2{
+			padding: 0;
+			li a{
+				background: #8da5ff;
+				color: #fff;
+			}
+		}
+		.dc_3{
+			padding-left: 0;
+		}
+		h4{
+			color: #fff;
+			text-align: center;
+			font: 600 20px/1 $font;
+			padding-top: 50px;
+			padding-bottom: 30px;
+		}
+		.time_btn{
+			text-align: center;
+			.theme_btn{
+				background: #839dff;
+				min-width: 154px;
+				line-height: 44px;
+				 box-shadow: 0px 20px 36px 0px rgba(32, 50, 118, 0.35);
+				color: #fff;
+			}
+			.active{
+				background: #ef5603;
+			}
+		}
+	}
+}
+//make_donation
