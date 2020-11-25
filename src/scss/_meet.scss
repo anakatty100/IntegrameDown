@@ -1,0 +1,188 @@
+//meet_kids_area
+.meet_kids_area{
+	display: block;
+	overflow: hidden;
+	padding: 140px 0 50px;
+	.meet_video{
+		padding-right: 0;
+		padding-bottom: 40px;
+		.video_inner{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			overflow: hidden;
+			position: relative;
+			img{
+				
+				max-width: 100%;
+			}
+			span{
+				font-size: 18px;
+				color: $bc;
+				width: 39px;
+				height: 39px;
+				line-height: 42px;
+				display: block;
+				text-align: center;
+				background: #fff;
+				position: absolute;
+				top: 12px;
+				right: 12px;
+				cursor: pointer;
+				@include transition;
+				&:hover, &:focus{
+					background: $bc;
+					color: #fff;
+				}
+			}
+			.popup-youtube{
+				font-size: 23px;
+				color: $bc;
+				background: #fff;
+				border-radius: 50%;
+				width: 83px;
+				line-height: 87px;
+				height: 83px;
+				display: block;
+				text-align: center;
+				position: absolute;
+				z-index: 1;
+				&:hover, &:focus{
+					background: $bc;
+					color: #fff;
+				}
+			}
+		}
+		p{
+			font-size: 18px;
+			color: rgba(0, 0, 0, 0.702);
+			padding-top: 40px;
+			max-width: 560px;
+		}
+	}
+	.story_col{
+		padding-left: 55px;
+		.change_story{
+			border: 1px solid #eaeae9;
+			display: block;
+			overflow: hidden;
+			padding: 38px 35px;
+			padding-right: 55px;
+			.media{
+				padding-bottom: 45px;
+			}
+			h6{
+				font: 600 16px/1 $font2;
+				color: #6c6b6b;
+				i{
+					margin-right: 7px;
+				}
+			}
+			.c_name{
+				font: 600 27px/1 $font2;
+				color: #1f1f1f;
+				display: block;
+				padding: 7px 0 15px;
+				&:hover, &:focus{
+					color: $bc;
+				}
+			}
+			.time{
+				padding-top: 65px;
+			}
+			.media-body{
+				text-align: right;
+				img{
+					border-radius: 20px;
+					max-width: 100%;
+				}
+			}
+			.theme_btn{
+				display: block;
+				line-height: 50px;
+				text-transform: uppercase;
+			}
+		}
+	}
+}
+//meet_kids_area
+
+//quickly_easily
+.quickly_easily{ 
+	background:rgb(44, 43, 59) url("../images/love.png") no-repeat center;
+	text-align: center;
+	padding: 110px 0; 
+	background-position: 52% 65px;
+	position: relative;
+	z-index: 1;
+	&:before{
+		content: "";
+		position: absolute;
+		top: 50px;
+		left: 285px;
+		background: url("../images/quick-shap-1.png") no-repeat;
+		height: 579px;
+		width: 287px;
+		z-index: 1;
+	}
+	&:after{
+		@extend :before;
+		left: auto;
+		right: 285px;
+		background: url("../images/quick-shap-2.png") no-repeat;
+	}
+	h2{
+		color: #fff;
+		font: 700 38px/52px $font; 
+		max-width: 770px;
+		margin: 0 auto;
+		padding-top: 35px;
+		position: relative;
+		z-index: 9;
+		&:after{
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			margin: 0 auto;
+			background: $bc;
+			height: 4px;
+			width: 58px;
+		}
+	}
+	p{
+		max-width: 816px;
+		margin: 0 auto;
+		color: rgba(255, 255, 255, 0.702);
+		font-size: 18px;
+		padding: 25px 0 40px;  
+	}
+	.theme_btn{
+		background: #fff;
+		color: $heding;
+		min-width: 194px;
+		&:before{
+			background: $bc;
+		}
+	}
+	.call_support{
+		font: 600 26px/1 $font2;
+		color: #fff;
+		display: inline-flex;
+		align-items: center;
+		padding-left: 40px;
+		position: relative;
+		top: 14px;
+		i:before{
+			font-size: 58px;
+			line-height: 1;
+			margin-right: 20px;
+			color: $bc;
+		}
+		&:hover, &:focus{
+			color: $bc;
+		}
+	}
+}
+//quickly_easily

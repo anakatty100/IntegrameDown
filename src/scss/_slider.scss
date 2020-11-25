@@ -1,0 +1,135 @@
+/* Slider Area */
+.main_slider_area{  
+    #main_slider{
+		.s_title{
+			color: $bc;
+			font-weight: 600 !important;
+		}
+        .concept_title{
+            color: #fff;
+            text-align: center !important;
+            font-weight: bold;
+			span{
+				color: $bc;
+			}
+        } 
+        .slider_sm_heding{
+            color: #fff;  
+            font-family: $font2;   
+        } 
+        .theme_btn{  
+            overflow: hidden;
+			font-size: 17px !important;
+            text-align: center !important; 
+			border: 1px solid $bc !important;
+			line-height: 53px !important;
+        }
+        .tb_2{
+            background-color: transparent; 
+			color: $bc;
+			&:before{
+				background: $bc;
+			}
+        }
+        .tb_3{
+            @extend .tb_2;
+			border-color: #fff !important;
+			color: #fff;
+			&:hover, &:focus{
+				border-color: $bc !important;
+			}
+        }
+		.tp-bullets{
+			right: 0;
+			margin: 0 auto;
+			.tp-bullet{
+				height: 13px;	
+				width: 13px;  
+				background: #fff;
+				border: 0;
+				box-sizing: border-box; 
+				&:hover, &:focus, &.selected{
+					border: 4px solid $bc;
+				}
+			}
+		}
+		.tp-bannertimer{
+			height: 4px; 
+			background-color: rgba(255, 255, 255, 0.25);
+		}
+    } 
+}   
+/* End Slider */  
+
+/* Pages banner */  
+.pages_banner{
+    background: url("../images/banner-bg.jpg") no-repeat center;
+    background-size: cover; 
+	padding-top: 355px;
+    position: relative;
+    z-index: 1;
+    &:after{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: block;
+        background: rgba(0, 0, 0, 0.502); 
+        z-index: -1;
+    }
+    h2{
+        color: #fff;
+        font: 700 60px/30px $font; 
+		border-bottom: 1px solid $bc;
+		display: inline-block;
+    } 
+    .breadcrumb{
+        background-color: transparent;  
+        display: block;
+        margin: 0;
+        text-align: center;
+        padding: 120px 0 32px; 
+        li{
+            display: inline-block;
+            padding-left: 22px;
+            position: relative;
+            &:after{
+                content: "-";
+                position: absolute;
+                color: #fff;
+                top: 0;
+                left: 7px; 
+            }
+            &:first-child{
+                padding: 0;
+                &:after{
+                    display: none;
+                }
+            }
+            a{
+                text-align: center;
+                font: 400 18px/1 $font2;
+                color: #fff;
+                &:hover, &:focus{
+                    color: $bc;
+                }
+            }
+        }
+    }
+} 
+.pb_2{
+	background: url("../images/banner-bg-2.jpg") no-repeat center;
+}
+.pb_3{
+	background: url("../images/slider-1.jpg") no-repeat top center fixed;
+}
+.pb_4{
+	background: url("../images/banner-bg-3.jpg") no-repeat top center fixed;
+}
+.pb_5{
+	background: url("../images/banner-bg-4.jpg") no-repeat top center fixed;
+}
+/* End Pages banner */  
+ 

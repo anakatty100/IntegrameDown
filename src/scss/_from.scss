@@ -1,0 +1,234 @@
+//crowdhope_charity
+.crowdhope_charity{
+	display: block;
+	overflow: hidden;
+	h2{
+		font: 700 38px/52px $font;
+		color: $heding;
+		display: inline-block;
+		max-width: 700px;
+		padding-bottom: 60px;
+	}
+	img{
+		max-width: 100%;
+	}
+}
+.cc_2{
+	h2{
+		padding-bottom: 0;
+	}
+	.mission_from h3{
+		padding-top: 90px;
+	}
+}
+.cc_3{ 
+	padding: 90px 0 70px;
+}
+//crowdhope_charity
+.mission_from{
+	h3{
+		font: 600 28px/32px $font;
+		color: $heding;
+		max-width: 490px;
+		padding-bottom: 60px;
+		padding-top: 20px;
+	}
+	.form-group{
+		margin-bottom: 40px;
+		display: block; 
+		width: 100%;
+		.form-control, .post_select{
+			box-shadow: none;
+			outline: none; 
+			border: 1px solid #ebebeb; 
+			background: transparent;
+			font: 400 16px/48px $font2;
+			color: #adabae;
+			border-radius: 0;
+			height: auto;
+			padding: 0 25px; 
+			resize: none; 
+			min-width: 100%;
+			@include transition;
+			@include placeholder{
+				color: #adabae;
+			}
+			&:focus{  
+				border-color: $bc;
+				@include placeholder{
+					color: transparent;
+				}
+			} 
+		} 
+		.post_select{
+			&:before{
+				line-height: 50px;
+				font-size: 16px;
+				color: #adabae;
+			}
+		}
+		.theme_btn{
+			border: 0;
+			box-shadow: none;
+			outline: none;
+			width: 200px;  
+			margin-top: 30px; 
+			cursor: pointer;
+		}  
+	}
+}
+//leave_comment
+.leave_comment{
+    padding-top: 50px;
+    padding-bottom: 40px;
+	.c_tittle{ 
+		position: relative;
+		z-index: 1;
+		margin-bottom: 25px;
+		&:after{
+			content: "";
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 16px;
+			border-bottom: 1px solid #e3e3e3;
+			z-index: -1;
+		}
+		h2{
+			font: 600 22px/32px $font;
+			color: $heding;
+			display: inline-block;
+			background: #fff;
+			z-index: 3;
+			padding-right: 20px;
+			text-transform: capitalize;
+		}
+	}
+    .comment_from{
+        padding-top: 30px;
+		margin: 0;
+        .form-group{
+            padding: 0 5px; 
+            margin-bottom: 50px;
+            .form-control{
+                border-radius: 0;
+                border: 1px solid #ebebeb;
+                resize: none;
+                outline: none;
+                box-shadow: none;
+                font: 400 16px/48px $font2;
+                padding: 0 24px; 
+                color: rgba(0, 0, 0, 0.6);  
+				height: auto;
+                @include placeholder{ 
+                    color: rgba(0, 0, 0, 0.6);
+                }  
+                &:focus{ 
+                    @include placeholder{
+                        color: transparent;
+                    }
+                    border-color: $bc; 
+                } 
+            }
+            .comment_box{
+                line-height: 32px;
+                padding-top: 20px;
+                height: 215px;
+            }
+            .theme_btn{
+                border: 0;
+                border-radius: 15px;
+                outline: none;
+                box-shadow: none;
+                font-size: 16px;
+                min-width: 186px;
+				margin: 0;
+				overflow: hidden;
+            }
+        }
+    }
+} 
+
+.contact_area{
+	display: block;
+	overflow: hidden;
+	padding-top: 100px;
+	h2{
+		font: 600 22px/1 $font;
+		color: $heding;
+		text-align: center;
+	}
+	.leave_comment{
+		padding: 0;
+		.comment_from{
+			padding-top: 70px;
+			margin-right: -15px;
+			margin-left: -15px;
+			.form-group{
+				padding: 0 15px;
+				margin-bottom: 30px;
+				.form-control{
+					border-color: #f5f5f5;
+					background: #f5f5f5;
+					@include transition;
+					&:hover, &:focus{
+						background: transparent;
+						border-color: $bc;
+					}
+				}
+				.theme_btn{
+					border-radius: 0;
+					margin-top: 10px;
+					min-width: 212px;
+					line-height: 50px;
+				}
+			}
+		}
+	}
+}
+//contact_info
+.contact_info{
+	display: block;
+	overflow: hidden;
+	padding-top: 40px;
+	padding-bottom: 20px;
+	h4{
+		font: 600 22px/1 $font;
+		color: $heding; 
+		padding-bottom: 30px;
+	}
+	.info{
+		padding-bottom: 50px;
+	}
+	ul{
+		li{
+			font: 400 18px/40px $font2;
+			color: rgba(1, 1, 1, 0.702);
+			display: block;
+			position: relative;
+			padding-left: 45px;
+			i{
+				position: absolute;
+				top: 0;
+				left: 0;
+				color: #8a8a8a;
+				line-height: 40px; 
+			}
+			a{
+				color: rgba(1, 1, 1, 0.702);
+				&:hover, &:focus{
+					color: $bc;
+				}
+			}
+		}
+	}
+}
+//contact_info
+.map_area{
+    display: block;
+    overflow: hidden; 
+    .mapBox{
+        width: 100%;
+        height: 430px;
+    }
+}

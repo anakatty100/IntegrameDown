@@ -1,0 +1,243 @@
+//widget
+.widget{
+	display: block;
+	overflow: hidden;
+	padding-bottom: 50px;
+	h4{
+		font: 600 24px/1 $font;
+		color: #2f2f2f;
+		padding-bottom: 20px;
+	}
+	p{
+		padding-bottom: 15px;
+	}
+	.bv_button{
+		text-transform: uppercase;
+		font: 600 16px/1 $font2;
+		color: #424242;
+		display: block;
+		text-align: right;
+		i{
+			padding-left: 5px;
+		}
+		&:hover, &:focus{
+			color: $bc;
+		}
+	}
+	.w_heding{
+		display: block;
+		font: 600 26px/30px $font;
+		color: #3f3f3f;
+		border-bottom: 1px solid $bc;
+		span{
+			float: right;
+		}
+	}
+	.categories{
+		padding-top: 40px;
+		li{
+			a{
+				display: block;
+				font: 400 18px/55px $font2;
+				color: $pfont; 
+				position: relative;
+				&:before{
+					content: "\f061";
+					font: normal normal normal 14px/55px FontAwesome;
+					position: absolute;
+					left: 0;
+					display: none;
+				}
+				span{
+					padding-left: 45px;
+					display: inline-block;
+					opacity: 0;
+				}
+				&:hover, &:focus, &.active{
+					color: $bc;
+					padding-left: 35px;
+					&:before{
+						display: inline-block;
+					}
+					span{
+						opacity: 1;
+					}
+				}
+			}
+		}
+	} 
+	.r_causes{
+		padding-top: 30px;
+		&.first{
+			padding-top: 40px; 
+		}
+		.media-left{
+			padding-left: 25px;
+			a{
+				font: 600 18px/28px $font2;
+				color: $heding; 
+				&:hover, &:focus{ 
+					color: $bc;
+				}
+			}
+			h6{
+				font: 400 16px/1 $font2;
+				color: #515151;
+				padding-top: 20px;
+				span{
+					color: $bc;
+				}
+			}
+		}
+	}
+	&.ew, &.supporters_w{
+		padding-top: 30px;
+		.theme_btn{
+			min-width: 118px;
+			line-height: 45px;
+			float: right;
+		}
+	}
+	.event_slide{
+		padding-top: 60px;
+		padding-bottom: 45px;
+		img{
+			max-width: 100%;
+		}
+		.heding{
+			font: 600 20px/28px $font2;
+			color: $heding;
+			display: block;
+			padding-top: 20px;
+			&:hover, &:focus{
+				color: $bc;
+			}
+		}
+		ul{
+			display: block;
+			padding-top: 15px;
+			li{
+				font: 400 16px/30px $font2;
+				color: #515151;
+				i{
+					color: $bc;
+					font-size: 20px;
+					padding-right: 15px;
+				}
+				span{
+					color: $bc;
+					padding-left: 10px;
+				}
+				.icon{
+					padding-left: 0;
+					width: 35px;
+				}
+			}
+		}
+		.carousel-indicators{
+			margin: 0;
+			display: block;
+			li{
+				height: 9px;
+				width: 9px;
+				border-radius: 50%;
+				background: #dddcda;
+				@include transition;
+				display: inline-block;
+				border: 0;
+				margin: 3px 0;
+				&:hover, &:focus, &.active{
+					background: $bc;
+					height: 14px;
+					width: 14px;
+					margin: 0;
+				}
+			}
+		}
+	}
+	.supporters{
+		padding-top: 30px;
+		.media-left{
+			padding-left: 20px;
+			width: 100%;
+			border-bottom: 1px solid #eaeaea;
+			padding-bottom: 45px;
+			a{
+				display: block;
+				font: 600 22px/1 $font2;
+				color: $heding;
+				padding-top: 25px;
+				padding-bottom: 10px;
+				&:hover, &:focus{
+					color: $bc;
+				}
+				span{
+					float: right;
+					font: 400 16px/1 $font2;
+					color: $pfont;
+					display: inline-block;
+				}
+			}
+			h6{
+				font: 400 16px/30px $font2;
+				color: $pfont;
+			}
+			h3{
+				color: $bc;
+				font: 600 22px/1 $font2;
+				padding-top: 10px;
+			}
+		}
+	}
+}
+//widget
+
+//Search 
+.right_sidebar{
+	.input-group{
+		padding: 30px;
+		background: #f1f1f1; 
+		margin-bottom: 40px;
+		input{
+			box-shadow: none;
+			border: 0;
+			border-right: 0;
+			background: $bc;
+			font: 400 16px/55px $font2;
+			color: #5e4e0d;
+			border-radius: 0;
+			padding: 0 30px;
+			padding-right: 0; 
+			height: auto;
+			@include placeholder{ 
+				color: #5e4e0d; 
+			}
+			&:focus{
+				@include placeholder{
+					color: transparent;
+				}
+			}
+		}
+		.input-group-append{
+			background: $bc;  
+			cursor: pointer;
+			border: 0;
+			border-left: 0;
+			span{
+				border: 0;
+				background-color: transparent; 
+				padding: 0 20px;
+				border-radius: 0;
+				color: #fff;
+				&:hover, &:focus{
+					background: #fff;
+					color: $bc;
+				}
+			}
+			i{
+				font-size: 18px; 
+				line-height: 50px;
+			}
+		}
+	}
+}

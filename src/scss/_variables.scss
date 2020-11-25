@@ -1,0 +1,150 @@
+/*font Variables*/  
+$font: 'Josefin Sans', sans-serif;
+$font2: 'Source Sans Pro', sans-serif;
+
+/*Color Variables*/ 
+$bc: #ffcd00;
+$heding: #272626; 
+$pfont: rgba(1, 1, 1, 0.702);
+
+// Mixins
+@mixin transition($property: all, $duration: 300ms, $animate: linear, $delay:0s){
+    transition: $property $duration $animate $delay; 
+}
+
+// Placeholder Mixins
+@mixin placeholder {
+    &.placeholder { @content; }
+    &:-moz-placeholder { @content; }
+    &::-moz-placeholder { @content; }
+    &::-webkit-input-placeholder { @content; }
+} 
+/* Button Style */
+.theme_btn{ 
+    color: #272626; 
+    background: $bc;
+    text-align: center; 
+    font: 600 18px/55px $font2;
+    display: inline-block;
+    transform: perspective(1px) translateZ(0);
+    padding: 0 20px; 
+    position: relative; 
+    &:before{
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: $pfont;   
+        transform: scaleY(0); 
+        transform-origin: 50% 0; 
+        transition-property: transform; 
+        transition-duration: 0.5s; 
+        transition-timing-function: ease-out; 
+    } 
+    &:hover, &:focus{  
+        color: #fff !important;
+        &:before{ 
+            transform: scaleY(1); 
+            transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+        }
+    }
+}
+
+//Tittle
+.tittle{
+	display: block;
+	overflow: hidden;
+	text-align: center;
+	padding-bottom: 40px;
+	h2{
+		text-transform: uppercase;
+		font: 700 38px/1 $font;
+		color: $heding;
+		display: block;
+		position: relative;
+		padding-bottom: 60px;
+		&:after{
+			content: "";
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			margin: 0 auto;
+			background: url("../images/tittle.png") no-repeat;
+			width: 106px;
+			height: 26px;
+			display: block;
+		}
+	}
+	p{
+		font: 400 20px/32px $font;
+		color: rgba(0, 0, 0, 0.702);
+		max-width: 700px;
+		margin:25px auto 0;
+	}
+}
+/* pie_chart */
+.smpie_chart { 
+    display: inline-block;
+    position: relative;
+    text-align: center; 
+    .pie-value {
+        display: block;
+        height: 110px;
+        position: absolute;
+        font: 600 20px/35px $font2;
+        color: #767676;  
+        top: 50%;
+        left: 0;
+        right: 0;
+        margin-top: -20px; 
+    }
+}
+
+//Scroll to top
+.scroll-top{
+    position: fixed;
+    right: 30px;
+    bottom: 15px; 
+    height: 50px;
+    width: 50px; 
+    cursor: pointer;
+    background: $bc;
+    border: 0;
+    box-shadow: none;
+    z-index: 999;
+    color: #fff;  
+    i{
+        padding: 0;  
+        &:before{
+            speak: none;
+            display: block;
+            -webkit-font-smoothing: subpixel-antialiased; 
+            -webkit-backface-visibility: hidden;
+            -moz-backface-visibility: hidden;
+            -ms-backface-visibility: hidden; 
+            animation: TopToBottom 0.3s forwards;
+        }
+    }
+    &:hover, &:focus{  
+        i:before{ 
+            animation: BottomToTop 0.3s forwards;
+        }
+    } 
+}
+/* Preloader */ 
+#preloader{
+    position:fixed;
+    left:0px; 
+    top:0px;
+    width:100%;
+    height:100%;
+    z-index:999999;
+    background:#fff url("../images/preloader.svg") no-repeat center;
+	display: flex;
+    align-items: center;
+    justify-content: center;  
+}

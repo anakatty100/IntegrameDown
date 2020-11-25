@@ -1,0 +1,72 @@
+//counter_area
+.become_inner{
+	background: $bc;
+	padding: 55px;
+	display: block;
+	overflow: hidden;
+	position: relative; 
+	margin-bottom: -70px;
+	z-index: 9;
+	&:before{
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		border-style: solid;
+		border-width: 0 1170px 35px 0;
+		border-color: transparent #fff transparent transparent;
+	}
+	h3{ 
+		font: 600 30px/36px $font;
+		color: $heding;
+	}
+	p{
+		color: #000;
+		padding-top: 30px;
+	}
+	.theme_btn{
+		background: #fff;
+		color: #272626;
+		min-width: 200px;
+		position: absolute;
+		bottom: 55px;
+		right: 55px;
+	}
+}
+.counter_area{
+	display: block;
+	overflow: hidden; 
+	background: url("../images/counter-bg.jpg") no-repeat center fixed; 
+	padding-top: 120px;
+	position: relative;
+	z-index: 1;
+	padding-bottom: 40px;
+	&:after{
+		content: "";
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		background-color: rgba(66, 66, 66, 0.851);
+		z-index: -1;
+	}
+	.consultants{
+		text-align: center;
+		margin-bottom: 40px;
+		.icons{
+			height: 67px;
+		}
+		h4{
+			font: 600 22px/1 $font2;
+			color: #fff;
+			padding: 25px 0 30px;
+		}
+		h2{
+			font: 700 60px/1 $font;
+			color: #fff;
+		}
+	}
+}
+//counter_area

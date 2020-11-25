@@ -1,0 +1,136 @@
+/* grid_gallery_area */
+.grid_gallery_area{
+    overflow: hidden;
+    padding-top: 100px;
+    padding-bottom: 70px;
+    .grid_gallery_inner{
+        /* gallery_filter */
+        .gallery_filter{
+            text-align:  center;
+            padding-bottom: 40px;
+            li{
+                display: inline-block;
+                padding-left: 7px;
+                &:first-child{
+                    padding: 0;
+                }
+                a{
+                    font: 500 16px/45px $font; 
+                    min-width: 172px;
+                    background: #e7e7e6;
+                    color: #717171;
+                    border-radius: 10px;
+					overflow: hidden; 
+                    &:before{
+                        background: $bc;
+                    }
+                    &:hover, &:focus{
+                        color: #fff;
+                    } 
+                }
+                &.active{
+                    a{
+                        background: $bc;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+        
+        /* grid_gallery_item_inner */
+        .grid_gallery_item_inner{
+            .grid_gallery_item{
+                position: relative;
+                display: block;
+                overflow: hidden;
+                margin-bottom: 30px;
+                img{
+                    max-width: 100%;
+                }
+                .gallery_hover{
+                    position: absolute;
+                    left: 200%;
+                    right: 0;
+                    top: 200%;
+                    bottom: 0;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+                    background-color: rgba(255, 205, 0, 0.82);
+                    transition: all 400ms linear 0s;
+                    cursor: pointer;
+                    .zoom_link{ 
+                        transition: all 300ms linear 0s;
+                        text-align: center;
+                        display: block; 
+                        a{
+                            line-height: 55px;
+                            width: 55px;
+                            height: 55px;
+                            background: #fff;
+                            border-radius: 50%;
+                            color: $bc;
+                            display: inline-block;
+                            text-align: center; 
+                            margin: 0 8px;
+                            i:before{
+                                font-size: 24px;
+                            }
+                            &:hover, &:focus{
+                                background: #f69f00;
+                                color: #fff;
+                            }
+                        }
+                        .light{ 
+                            i{
+                                position: relative;
+                                top: 2px; 
+                            }
+                        } 
+                    } 
+                }
+                &:hover, &:focus{
+                    .gallery_hover{
+                        left: 0;
+                        top: 0;
+                    }
+                }
+            }
+        } 
+    }
+    .pagination_area {
+        margin: 60px 0 0;
+    }
+}
+
+/* next_pages */
+.pagination_area{
+    margin: 30px 0 0;
+    .pagination{
+        display: block;
+        text-align: center;
+        li{
+            display: inline-block;
+            a{
+                font: 600 18px/46px $font2;
+                color: $heding;
+                background: #f3f2f2;
+                width: 46px;
+                border-radius: 50%;
+                border: 0;
+                padding: 0;
+                text-align: center;
+                display: inline-block;
+                margin: 0 7px; 
+                i{
+                    font-size: 16px;
+                    line-height: 46px;
+                }
+                &:hover, &:focus, &.active{
+                    background: $bc; 
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
