@@ -1,0 +1,12 @@
+/*Estilos propios*/
+
+.logo {
+    width: 70px;
+    height: auto;
+  }
+
+.container-flex {
+    display: flex;
+    flex-direction: column;
+}
+

@@ -22,7 +22,7 @@ db.once("open", function () {
 });
 
 //Settings
-app.set("port", process.env.PORT || 4000);
+app.set("port", process.env.PORT || 5000);
 app.set("views", path.join(__dirname, "views"));
 
 //Html templating setup
@@ -46,6 +46,8 @@ app.use(bodyParser.json());
 
 //Public
 app.use(express.static(path.join(__dirname, "public")));
+app.use("/services",express.static(path.join(__dirname, "public")));
+app.use("/events",express.static(path.join(__dirname, "public")));
 
 //Routes
 app.use(require("./routes/index.js"));
