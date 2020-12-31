@@ -4,24 +4,13 @@ const express = require("express"),
     exphdbs = require("express-handlebars"),
     path = require("path"),
     bodyParser = require("body-parser"),
-    mongoose = require("mongoose"),
     session = require("session");
 
 //Initialization
 const app = express();
+const mongodb = require('./database');
 
-//Connect DB
-// Mongo Path -> mongod --dbpath=/home/mike/data
-mongoose.connect("mongodb://localhost:integrame", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-});
 
-const db = mongoose.connection;
-db.on("error", console.error.bind(console, "connection error:"));
-db.once("open", function () {
-    console.log("DB connected");
-});
 
 //Settings
 app.set("port", process.env.PORT || 5000);
