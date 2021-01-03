@@ -1,25 +1,16 @@
 const express = require("express"),
+    morgan = require("morgan"),
+    multer = require("multer"),
     exphdbs = require("express-handlebars"),
     path = require("path"),
     bodyParser = require("body-parser"),
-    mongoose = require("mongoose"),
     session = require("session");
 
 //Initialization
 const app = express();
+const mongodb = require('./database');
 
-//Connect DB
-// Mongo Path -> mongod --dbpath=/home/mike/data
-mongoose.connect("mongodb://localhost:integrame", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-});
 
-const db = mongoose.connection;
-db.on("error", console.error.bind(console, "connection error:"));
-db.once("open", function () {
-    console.log("DB connected");
-});
 
 //Settings
 app.set("port", process.env.PORT || 5000);
@@ -40,19 +31,31 @@ app.engine(
 //Html templating use
 app.set("view engine", ".hbs");
 
+//Midlewares
+//Funciones que se ejecutan antes de llegar
+//a las rutas
+app.use(morgan("dev"));
+//
+app.use(express.json());
+app.use(express.urlencoded({extended:false}));
+const storage = multer.diskStorage({
+    destination: path.join(__dirname, "public/uploads"),
+    filename: (req, file, callback)=> {
+        callback(null, new Date().getTime() + path.extname(file.originalname));
+    }
+});
+app.use(multer({storage: storage}).single("image"));
+
 //Parse application /x-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+//app.use(bodyParser.urlencoded({ extended: true }));
+//app.use(bodyParser.json());
 
 //Public
 app.use(express.static(path.join(__dirname, "public")));
-app.use("/services",express.static(path.join(__dirname, "public")));
-app.use("/events",express.static(path.join(__dirname, "public")));
+app.use("/services", express.static(path.join(__dirname, "public")));
+app.use("/events", express.static(path.join(__dirname, "public")));
 
 //Routes
 app.use(require("./routes/index.js"));
 
-//Starting the server
-app.listen(app.get("port"), () => {
-    console.log("Server on port:", app.get("port"));
-});
+module.exports = app;
