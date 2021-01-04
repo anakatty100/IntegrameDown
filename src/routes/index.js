@@ -32,6 +32,10 @@ router.get("/gallery", (req, res) => {
     res.render("gallery", {gallery: true});
 });
 
+router.get("/gallery/add", (req, res) => {
+    res.render("gallery_form", {galleryForm: true});
+});
+
 router.get("/faq", (req, res)=> {
     res.render("faq", {faq: true});
 });
