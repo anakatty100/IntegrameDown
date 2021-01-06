@@ -17,139 +17,32 @@
         <div class="grid_gallery_inner">
             <ul class="gallery_filter">
                 <li class="active" data-filter="*">
-                    <a href="#" class="theme_btn">All Gallery</a>
+                    <a href="#" class="theme_btn">Todas las campañas</a>
                 </li>
-                <li data-filter=".rooms">
-                    <a href="#" class="theme_btn">Poor People</a>
+                {{#each campaignNames}}
+                <li data-filter=".{{id}}">
+                    <a href="#" class="theme_btn">{{name}}</a>
                 </li>
-                <li data-filter=".activites">
-                    <a href="#" class="theme_btn">Human Rights</a>
-                </li>
-                <li data-filter=".event">
-                    <a href="#" class="theme_btn">Education</a>
-                </li>
-                <li data-filter=".restaurant">
-                    <a href="#" class="theme_btn">Empowerment</a>
-                </li>
+                {{/each}}
             </ul>
+            {{!-- Container gallery --}}
+            {{!-- Matrix 3 x 3 max --}}
             <div class="row grid_gallery_item_inner imageGallery1">
-                <div class="col-lg-4 col-sm-6 activites restaurant">
+                {{!-- <p>{{galleryImages}}</p> --}}
+                {{#each galleryImages}}
+                <div class="col-lg-4 col-sm-6 {{campaignId}}">
                     <div class="grid_gallery_item">
-                        <img src="images/gallery-1.jpg" alt="" />
+                        <img src="{{imageURL}}" alt="" />
+                        {{!-- <img src="images/gallery-1.jpg" alt="" /> --}}
                         <div class="gallery_hover">
                             <div class="zoom_link">
-                                <a href="#"><i class="flaticon-chain"></i></a>
-                                <a class="light" href="images/gallery-1.jpg"
-                                    ><i class="flaticon-photo"></i
-                                ></a>
+                                <a target="_blank" href="{{imageURL}}"><i class="flaticon-chain"></i></a>
+                                <a class="light" href="{{imageURL}}"><i class="flaticon-photo"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-sm-6 rooms event restaurant">
-                    <div class="grid_gallery_item">
-                        <img src="images/gallery-2.jpg" alt="" />
-                        <div class="gallery_hover">
-                            <div class="zoom_link">
-                                <a href="#"><i class="flaticon-chain"></i></a>
-                                <a class="light" href="images/gallery-2.jpg"
-                                    ><i class="flaticon-photo"></i
-                                ></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6 event restaurant">
-                    <div class="grid_gallery_item">
-                        <img src="images/gallery-3.jpg" alt="" />
-                        <div class="gallery_hover">
-                            <div class="zoom_link">
-                                <a href="#"><i class="flaticon-chain"></i></a>
-                                <a class="light" href="images/gallery-3.jpg"
-                                    ><i class="flaticon-photo"></i
-                                ></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6 rooms event restaurant">
-                    <div class="grid_gallery_item">
-                        <img src="images/gallery-4.jpg" alt="" />
-                        <div class="gallery_hover">
-                            <div class="zoom_link">
-                                <a href="#"><i class="flaticon-chain"></i></a>
-                                <a class="light" href="images/gallery-4.jpg"
-                                    ><i class="flaticon-photo"></i
-                                ></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6 activites rooms">
-                    <div class="grid_gallery_item">
-                        <img src="images/gallery-5.jpg" alt="" />
-                        <div class="gallery_hover">
-                            <div class="zoom_link">
-                                <a href="#"><i class="flaticon-chain"></i></a>
-                                <a class="light" href="images/gallery-5.jpg"
-                                    ><i class="flaticon-photo"></i
-                                ></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6 event activites">
-                    <div class="grid_gallery_item">
-                        <img src="images/gallery-6.jpg" alt="" />
-                        <div class="gallery_hover">
-                            <div class="zoom_link">
-                                <a href="#"><i class="flaticon-chain"></i></a>
-                                <a class="light" href="images/gallery-6.jpg"
-                                    ><i class="flaticon-photo"></i
-                                ></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6 rooms event restaurant">
-                    <div class="grid_gallery_item">
-                        <img src="images/gallery-7.jpg" alt="" />
-                        <div class="gallery_hover">
-                            <div class="zoom_link">
-                                <a href="#"><i class="flaticon-chain"></i></a>
-                                <a class="light" href="images/gallery-7.jpg"
-                                    ><i class="flaticon-photo"></i
-                                ></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6 rooms event restaurant">
-                    <div class="grid_gallery_item">
-                        <img src="images/gallery-8.jpg" alt="" />
-                        <div class="gallery_hover">
-                            <div class="zoom_link">
-                                <a href="#"><i class="flaticon-chain"></i></a>
-                                <a class="light" href="images/gallery-8.jpg"
-                                    ><i class="flaticon-photo"></i
-                                ></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6 rooms">
-                    <div class="grid_gallery_item">
-                        <img src="images/gallery-9.jpg" alt="" />
-                        <div class="gallery_hover">
-                            <div class="zoom_link">
-                                <a href="#"><i class="flaticon-chain"></i></a>
-                                <a class="light" href="images/gallery-9.jpg"
-                                    ><i class="flaticon-photo"></i
-                                ></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {{/each}}
             </div>
             <!-- Pagination_area-->
             <div class="row">
@@ -161,9 +54,7 @@
                         <li class="page-item"><a href="#">2</a></li>
                         <li class="page-item"><a href="#">3</a></li>
                         <li class="page-item">
-                            <a href="#"
-                                ><i class="fa fa-angle-double-right"></i
-                            ></a>
+                            <a href="#"><i class="fa fa-angle-double-right"></i></a>
                         </li>
                     </ul>
                 </nav>

@@ -4,6 +4,7 @@ const CampaignImage = new Schema({
     title: String,
     description: String,
     campaign: String,
+    campaignId: String,
     imageURL: String,
     //Public Id provided by claudinary service
     public_id: String,

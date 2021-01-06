@@ -55,6 +55,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/services", express.static(path.join(__dirname, "public")));
 app.use("/events", express.static(path.join(__dirname, "public")));
 app.use("/gallery", express.static(path.join(__dirname, "public")));
+app.use("/campaign", express.static(path.join(__dirname, "public")));
 
 //Routes
 app.use(require("./routes/index.js"));

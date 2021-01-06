@@ -4,15 +4,23 @@
             <div class="card ">
                 <div class="card-body">
                     <h5 class="card-title">Agrega una imagen de campaña</h5>
-                    <p class="card-text">La imagen que agreges a continuación aparecera en las campañas principales.</p>
-                    <p class="card-text mb-3">Al escribir el nombre de campaña verifica que este escrito correctamente.</p>
+                    <p class="card-text">La imagen que agregues a continuación aparecera en las campañas principales.</p>
+                    <p class="card-text mb-3">Al escribir el nombre de campaña verifica que este escrito correctamente.
+                    </p>
                     <form action="/gallery/add" method="POST" enctype="multipart/form-data">
                         <div class="form-group">
                             <input class="form-control" type="text" name="title" placeholder="Título imagen">
                         </div>
-                        <div class="form-group">
-                            <input class="form-control" type="text" name="campaign" placeholder="Título campaña">
+                        <select class="custom-select" id="inputGroupSelect01">
+                            <option selected>Selecciona una campaña</option>
+                            {{#each campaigns}}
+                            <option value="{{_id}}">{{name}}</option>
+                            {{/each}}
+                        </select>
+                        <div class="card-body">
+                            <a href="/campaign/add" class="card-link">Agregar campaña</a>
                         </div>
+
                         <div class="form-group">
                             <textarea name="description" id="" cols="30" rows="5" class="form-control"
                                 placeholder="Descripción imagen"></textarea>
@@ -27,6 +35,5 @@
                 </div>
             </div>
         </div>
-
     </div>
 </div>

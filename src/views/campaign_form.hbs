@@ -1,0 +1,27 @@
+<div class="wild_selector_margin_top">
+    <div class="container p-4 d-flex justify-content-center">
+        <div class="col-md-6">
+            <div class="card ">
+                <div class="card-body">
+                    <h5 class="card-title">Agrega una campaña</h5>
+                    <p class="card-text">La información que agregues a continuación aparecera en la selección de campañas.</p>
+                    <p class="card-text mb-3">Al escribir el nombre de campaña verifica que este escrito correctamente.
+                    </p>
+                    <form action="/campaign/add" method="POST" enctype="application/x-www-form-urlencoded">
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="name" placeholder="Nombre de campaña">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="year" placeholder="Año de publicación">
+                        </div>
+                        <div class="form-group">
+                            <textarea name="description" id="" cols="30" rows="5" class="form-control"
+                                placeholder="Descripción de la campaña"></textarea>
+                        </div>
+                        <button class="btn btn-primary">Subir campaña</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
