@@ -45,15 +45,17 @@ router.get("/events/id", (req, res) => {
 router.get("/gallery", async (req, res) => {
     const galleryImages = await CampaignImage.find({}).lean();
     const campaignNames = await Campaign.find({}).lean();
-    console.log(campaignNames);
-    console.log("--------------------");
-    console.log(galleryImages);
     res.render("gallery", { gallery: true, galleryImages, campaignNames });
 });
 
 router.get("/gallery/add", async (req, res) => {
     const campaigns = await Campaign.find({}).lean();
-    res.render("gallery_form", { galleryForm: true, campaigns });
+    const galleryImages = await CampaignImage.find({}).populate("campaign").lean();
+
+    console.log("--------------------");
+    console.log('%j', galleryImages);
+    console.log("--------------------");
+    res.render("gallery_form", { galleryForm: true, campaigns, galleryImages });
 });
 
 router.post("/gallery/add", async (req, res) => {
@@ -78,11 +80,23 @@ router.post("/gallery/add", async (req, res) => {
     }
 
 
-    res.redirect("/gallery")
+    res.redirect("/gallery/add")
 });
 
-router.get("/campaign/add", (req, res) => {
-    res.render("campaign_form");
+//should be router.delete ...
+router.get("/gallery/delete/:image_id", async (req, res) => {
+    const { image_id } = req.params;
+    const image = await CampaignImage.findByIdAndDelete(image_id);
+    const result = await cloudinary.v2.uploader.destroy(image.public_id);
+
+    res.redirect("/gallery/add");
+});
+
+router.get("/campaign/add", async (req, res) => {
+
+    const campaigns = await Campaign.find({}).lean();
+    console.log(campaigns);
+    res.render("campaign_form", { campaigns });
 });
 
 router.post("/campaign/add", async (req, res) => {
@@ -96,6 +110,14 @@ router.post("/campaign/add", async (req, res) => {
     const dbResponse = await newCampaign.save();
 
     res.redirect("/gallery/add");
+});
+
+//should be router.delete ...
+router.get("/campaign/delete/:campaign_id", async (req, res) => {
+    const { campaign_id } = req.params;
+    const campaign = await Campaign.findByIdAndDelete(campaign_id);
+
+    res.redirect("/campaign/delete");
 });
 
 router.get("/faq", (req, res) => {

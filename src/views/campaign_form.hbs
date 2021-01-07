@@ -1,10 +1,11 @@
 <div class="wild_selector_margin_top">
     <div class="container p-4 d-flex justify-content-center">
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="card ">
                 <div class="card-body">
                     <h5 class="card-title">Agrega una campaña</h5>
-                    <p class="card-text">La información que agregues a continuación aparecera en la selección de campañas.</p>
+                    <p class="card-text">La información que agregues a continuación aparecera en la selección de
+                        campañas.</p>
                     <p class="card-text mb-3">Al escribir el nombre de campaña verifica que este escrito correctamente.
                     </p>
                     <form action="/campaign/add" method="POST" enctype="application/x-www-form-urlencoded">
@@ -22,6 +23,31 @@
                     </form>
                 </div>
             </div>
+        </div>
+        <div class="col-md-8">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Año</th>
+                        <th>Descripción</th>
+                        <th>Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each campaigns}}
+                    <tr>
+                        <td>{{name}}</td>
+                        <td>{{year}}</td>
+                        <td>{{description}}</td>
+                        <td>
+                            <a href="/campaign/delete/{{_id}}" class="btn btn-danger">Borrar</a>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+
+            </table>
         </div>
     </div>
 </div>

@@ -1,10 +1,11 @@
 <div class="wild_selector_margin_top">
     <div class="container p-4 d-flex justify-content-center">
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="card ">
                 <div class="card-body">
                     <h5 class="card-title">Agrega una imagen de campaña</h5>
-                    <p class="card-text">La imagen que agregues a continuación aparecera en las campañas principales.</p>
+                    <p class="card-text">La imagen que agregues a continuación aparecera en las campañas principales.
+                    </p>
                     <p class="card-text mb-3">Al escribir el nombre de campaña verifica que este escrito correctamente.
                     </p>
                     <form action="/gallery/add" method="POST" enctype="multipart/form-data">
@@ -34,6 +35,32 @@
                     </form>
                 </div>
             </div>
+        </div>
+        <div class="col-md-8">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Titulo</th>
+                        <th>Descripción</th>
+                        <th>Campaña</th>
+                        <th>Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each galleryImages}}
+                    <tr>
+                        <td>{{title}}</td>
+                        <td>{{description}}</td>
+                        <td>{{campaign.[0].name}}</td>
+                        <td>
+                            <a href="{{imageURL}}" target="_blank" class="btn btn-primary">Abrir</a>
+                            <a href="/gallery/delete/{{_id}}" class="btn btn-danger">Borrar</a>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+
+            </table>
         </div>
     </div>
 </div>
