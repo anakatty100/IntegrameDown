@@ -20,7 +20,7 @@
                     <a href="#" class="theme_btn">Todas las campañas</a>
                 </li>
                 {{#each campaignNames}}
-                <li data-filter=".{{id}}">
+                <li data-filter=".{{_id}}">
                     <a href="#" class="theme_btn">{{name}}</a>
                 </li>
                 {{/each}}
@@ -30,7 +30,7 @@
             <div class="row grid_gallery_item_inner imageGallery1">
                 {{!-- <p>{{galleryImages}}</p> --}}
                 {{#each galleryImages}}
-                <div class="col-lg-4 col-sm-6 {{campaignId}}">
+                <div class="col-lg-4 col-sm-6 {{campaign}}">
                     <div class="grid_gallery_item">
                         <img src="{{imageURL}}" alt="" />
                         {{!-- <img src="images/gallery-1.jpg" alt="" /> --}}

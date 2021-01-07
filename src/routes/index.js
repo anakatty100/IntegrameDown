@@ -44,12 +44,10 @@ router.get("/events/id", (req, res) => {
 
 router.get("/gallery", async (req, res) => {
     const galleryImages = await CampaignImage.find({}).lean();
-    const campaignNames = galleryImages.map((image) => {
-        return {
-            id: image.campaignId,
-            name: image.campaign,
-        };
-    });
+    const campaignNames = await Campaign.find({}).lean();
+    console.log(campaignNames);
+    console.log("--------------------");
+    console.log(galleryImages);
     res.render("gallery", { gallery: true, galleryImages, campaignNames });
 });
 
@@ -62,18 +60,23 @@ router.post("/gallery/add", async (req, res) => {
     const result = await cloudinary.v2.uploader.upload(req.file.path);
 
     const { title, campaign, description } = req.body;
+
     const newImageGallery = new CampaignImage({
         title: title,
         description: description,
         campaign: campaign,
-        campaignId: campaign.replace(/\s/g, ""),
         imageURL: result.url,
         public_id: result.public_id,
     });
 
     const dbResponse = await newImageGallery.save();
 
-    await fs.unlink(req.file.path);
+    try {
+        await fs.unlink(req.file.path);
+    } catch (e) {
+        console.log(e);
+    }
+
 
     res.redirect("/gallery")
 });
