@@ -1,4 +1,5 @@
 const express = require("express"),
+    methodOverride = require("method-override"),
     morgan = require("morgan"),
     multer = require("multer"),
     exphdbs = require("express-handlebars"),
@@ -6,9 +7,12 @@ const express = require("express"),
     bodyParser = require("body-parser"),
     session = require("session");
 
+const mongodb = require('./database');
+
 //Initialization
 const app = express();
-const mongodb = require('./database');
+app.use(methodOverride('_method'))
+
 
 
 
@@ -37,14 +41,14 @@ app.set("view engine", ".hbs");
 app.use(morgan("dev"));
 //
 app.use(express.json());
-app.use(express.urlencoded({extended:false}));
+app.use(express.urlencoded({ extended: false }));
 const storage = multer.diskStorage({
     destination: path.join(__dirname, "public/uploads"),
-    filename: (req, file, callback)=> {
+    filename: (req, file, callback) => {
         callback(null, new Date().getTime() + path.extname(file.originalname));
     }
 });
-app.use(multer({storage: storage}).single("image"));
+app.use(multer({ storage: storage }).single("image"));
 
 //Parse application /x-form-urlencoded
 //app.use(bodyParser.urlencoded({ extended: true }));
@@ -56,8 +60,17 @@ app.use("/services", express.static(path.join(__dirname, "public")));
 app.use("/events", express.static(path.join(__dirname, "public")));
 app.use("/gallery", express.static(path.join(__dirname, "public")));
 app.use("/campaign", express.static(path.join(__dirname, "public")));
+app.use("/admin", express.static(path.join(__dirname, "public")));
+
+app.use("/admin/gallery", express.static(path.join(__dirname, "public")));
+app.use("/admin/gallery/edit", express.static(path.join(__dirname, "public")));
+app.use("/admin/campaign", express.static(path.join(__dirname, "public")));
 
 //Routes
-app.use(require("./routes/index.js"));
+app.use(require("./routes/index"));
+app.use(require("./routes/gallery"));
+app.use(require("./routes/campaign"));
+
+
 
 module.exports = app;

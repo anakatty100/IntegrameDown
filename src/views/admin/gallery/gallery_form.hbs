@@ -8,7 +8,7 @@
                     </p>
                     <p class="card-text mb-3">Al escribir el nombre de campaña verifica que este escrito correctamente.
                     </p>
-                    <form action="/gallery/add" method="POST" enctype="multipart/form-data">
+                    <form action="/admin/gallery" method="POST" enctype="multipart/form-data">
                         <div class="form-group">
                             <input class="form-control" type="text" name="title" placeholder="Título imagen">
                         </div>
@@ -19,7 +19,7 @@
                             {{/each}}
                         </select>
                         <div class="card-body">
-                            <a href="/campaign/add" class="card-link">Agregar campaña</a>
+                            <a href="/admin/campaign" class="card-link">Agregar campaña</a>
                         </div>
 
                         <div class="form-group">
@@ -37,30 +37,41 @@
             </div>
         </div>
         <div class="col-md-8">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Titulo</th>
-                        <th>Descripción</th>
-                        <th>Campaña</th>
-                        <th>Opciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {{#each galleryImages}}
-                    <tr>
-                        <td>{{title}}</td>
-                        <td>{{description}}</td>
-                        <td>{{campaign.[0].name}}</td>
-                        <td>
-                            <a href="{{imageURL}}" target="_blank" class="btn btn-primary">Abrir</a>
-                            <a href="/gallery/delete/{{_id}}" class="btn btn-danger">Borrar</a>
-                        </td>
-                    </tr>
-                    {{/each}}
-                </tbody>
+            <div class="card">
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Titulo</th>
+                                <th>Descripción</th>
+                                <th>Campaña</th>
+                                <th>Opciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each galleryImages}}
+                            <tr>
+                                <td>{{title}}</td>
+                                <td>{{description}}</td>
+                                <td>{{campaign.[0].name}}</td>
+                                <td>
+                                    <a href="{{imageURL}}" target="_blank" class="btn btn-primary">
+                                        <i class="fa fa-external-link-square" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="/admin/gallery/edit/{{_id}}" class="btn btn btn-info">
+                                        <i class="fa fa-pencil-square" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="/admin/gallery/delete/{{_id}}" class="btn btn-danger">
+                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
 
-            </table>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -25,29 +25,38 @@
             </div>
         </div>
         <div class="col-md-8">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Año</th>
-                        <th>Descripción</th>
-                        <th>Opciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {{#each campaigns}}
-                    <tr>
-                        <td>{{name}}</td>
-                        <td>{{year}}</td>
-                        <td>{{description}}</td>
-                        <td>
-                            <a href="/campaign/delete/{{_id}}" class="btn btn-danger">Borrar</a>
-                        </td>
-                    </tr>
-                    {{/each}}
-                </tbody>
+            <div class="card">
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Año</th>
+                                <th>Descripción</th>
+                                <th>Opciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each campaigns}}
+                            <tr>
+                                <td>{{name}}</td>
+                                <td>{{year}}</td>
+                                <td>{{description}}</td>
+                                <td>
+                                    <a href="/admin/gallery/edit/{{_id}}" class="btn btn btn-info">
+                                        <i class="fa fa-pencil-square" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="/admin/gallery/delete/{{_id}}" class="btn btn-danger">
+                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
 
-            </table>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 </div>
