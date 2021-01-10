@@ -8,7 +8,7 @@
                         campañas.</p>
                     <p class="card-text mb-3">Al escribir el nombre de campaña verifica que este escrito correctamente.
                     </p>
-                    <form action="/campaign/add" method="POST" enctype="application/x-www-form-urlencoded">
+                    <form action="/admin/campaign/" method="POST" enctype="application/x-www-form-urlencoded">
                         <div class="form-group">
                             <input class="form-control" type="text" name="name" placeholder="Nombre de campaña">
                         </div>
@@ -43,10 +43,10 @@
                                 <td>{{year}}</td>
                                 <td>{{description}}</td>
                                 <td>
-                                    <a href="/admin/gallery/edit/{{_id}}" class="btn btn btn-info">
+                                    <a href="/admin/campaign/edit/{{_id}}" class="btn btn btn-info">
                                         <i class="fa fa-pencil-square" aria-hidden="true"></i>
                                     </a>
-                                    <a href="/admin/gallery/delete/{{_id}}" class="btn btn-danger">
+                                    <a href="/admin/campaign/delete/{{_id}}" class="btn btn-danger">
                                         <i class="fa fa-trash" aria-hidden="true"></i>
                                     </a>
                                 </td>
