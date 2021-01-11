@@ -11,6 +11,12 @@ const Campaign = require("../models/Campaign.js");
     Gallery RESTful endpoints
 */
 
+router.get("/gallery", async (req, res) => {
+    const galleryImages = await CampaignImage.find({}).lean();
+    const campaignNames = await Campaign.find({}).lean();
+    res.render("gallery", { gallery: true, galleryImages, campaignNames });
+});
+
 router.get("/admin/gallery", async (req, res) => {
     const campaigns = await Campaign.find({}).lean();
     const galleryImages = await CampaignImage.find({}).populate("campaign").lean();
@@ -68,7 +74,7 @@ router.post("/admin/gallery/edit/:image_id", async (req, res) => {
 
     try {
         req.file.path
-    } catch(e) {
+    } catch (e) {
         console.log("Upps!");
         console.log(e);
     }

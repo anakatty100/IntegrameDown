@@ -71,6 +71,7 @@ app.use("/admin/campaign/edit", express.static(path.join(__dirname, "public")));
 app.use(require("./routes/index"));
 app.use(require("./routes/gallery"));
 app.use(require("./routes/campaign"));
+app.use(require("./routes/event"));
 
 
 
