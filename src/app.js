@@ -65,10 +65,12 @@ app.use(express.static(path.join(rootDir, "public")));
 
 //Routes
 app.use(require("./routes/index"));
-app.use(require("./routes/gallery"));
-app.use(require("./routes/campaign"));
-app.use(require("./routes/event"));
-app.use(require("./routes/service"));
+
+app.use("/admin", require("./routes/admin/index"));
+app.use("/admin", require("./routes/admin/gallery"));
+app.use("/admin", require("./routes/admin/campaign"));
+app.use("/admin", require("./routes/admin/event"));
+app.use("/admin", require("./routes/admin/service"));
 
 
 
