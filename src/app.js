@@ -4,21 +4,23 @@ const express = require("express"),
     multer = require("multer"),
     exphdbs = require("express-handlebars"),
     path = require("path"),
-    bodyParser = require("body-parser"),
-    session = require("session");
+    bodyParser = require("body-parser");
 
+//Database URI callback
 const mongodb = require('./database');
+
+const rootDir = require("./lib/path");
 
 //Initialization
 const app = express();
-app.use(methodOverride('_method'))
+app.use(methodOverride('_method'));
 
 
 
 
 //Settings
 app.set("port", process.env.PORT || 5000);
-app.set("views", path.join(__dirname, "views"));
+app.set("views", path.join(rootDir, "views"));
 
 //Html templating setup
 app.engine(
@@ -39,39 +41,34 @@ app.set("view engine", ".hbs");
 //Funciones que se ejecutan antes de llegar
 //a las rutas
 app.use(morgan("dev"));
-//
+
+//Parse application /x-form-urlencoded
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+//Multer is a midleware that transform the incoming files (images)
+//and add them in a local folder
 const storage = multer.diskStorage({
-    destination: path.join(__dirname, "public/uploads"),
+    destination: path.join(rootDir, "public", "uploads"),
     filename: (req, file, callback) => {
         callback(null, new Date().getTime() + path.extname(file.originalname));
     }
 });
 app.use(multer({ storage: storage }).single("image"));
 
-//Parse application /x-form-urlencoded
 //app.use(bodyParser.urlencoded({ extended: true }));
 //app.use(bodyParser.json());
 
-//Public
-app.use(express.static(path.join(__dirname, "public")));
-app.use("/services", express.static(path.join(__dirname, "public")));
-app.use("/events", express.static(path.join(__dirname, "public")));
-app.use("/gallery", express.static(path.join(__dirname, "public")));
-app.use("/campaign", express.static(path.join(__dirname, "public")));
-app.use("/admin", express.static(path.join(__dirname, "public")));
 
-app.use("/admin/gallery", express.static(path.join(__dirname, "public")));
-app.use("/admin/gallery/edit", express.static(path.join(__dirname, "public")));
-app.use("/admin/campaign", express.static(path.join(__dirname, "public")));
-app.use("/admin/campaign/edit", express.static(path.join(__dirname, "public")));
+//Public
+console.log("Root dir: ", rootDir);
+app.use(express.static(path.join(rootDir, "public")));
 
 //Routes
 app.use(require("./routes/index"));
 app.use(require("./routes/gallery"));
 app.use(require("./routes/campaign"));
 app.use(require("./routes/event"));
+app.use(require("./routes/service"));
 
 
 
