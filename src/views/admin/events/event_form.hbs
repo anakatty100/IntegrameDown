@@ -8,7 +8,7 @@
                     </p>
                     <p class="card-text mb-3">Al escribir el nombre de campaña verifica que este escrito correctamente.
                     </p>
-                    <form action="/admin/gallery" method="POST" enctype="multipart/form-data">
+                    <form action="/admin/event" method="POST" enctype="multipart/form-data">
                         {{!--
                         title: String,
                         date: Date,
@@ -21,28 +21,19 @@
 
                         --}}
                         <div class="form-group">
-                            <input class="form-control" type="text" name="title" placeholder="Título imagen">
+                            <input class="form-control" type="text" name="title" placeholder="Título evento">
                         </div>
                         <div class="form-group">
-                            <input class="form-control" type="datetime-local" name="title" placeholder="Título imagen">
+                            <input class="form-control" type="datetime-local" name="date">
                         </div>
                         <div class="form-group">
-                            <input class="form-control" type="number" name="title" placeholder="Precio del evento">
+                            <input class="form-control" type="number" name="price" placeholder="Precio del evento">
                         </div>
                         <div class="form-group">
-                            <input class="form-control" type="text" name="title" placeholder="Liga de registro">
+                            <input class="form-control" type="text" name="bookLink" placeholder="Liga de registro">
                         </div>
                         <div class="form-group">
-                            <input class="form-control" type="text" name="title" placeholder="Liga de evento">
-                        </div>
-                        <div class="form-group">
-                            <textarea name="description" id="" cols="30" rows="5" class="form-control"
-                                placeholder="Descripción parrafo"></textarea>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input class="custom-file-input" type="file" name="image" placeholder="Titulo imagen"
-                                id="inputGroupFile01">
-                            <label for="inputGroupFile01" class="custom-file-label">Selecciona una imagen</label>
+                            <input class="form-control" type="text" name="lookEventLink" placeholder="Liga de evento">
                         </div>
                         <button class="btn btn-primary">Subir foto</button>
                     </form>
@@ -52,37 +43,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-body">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Titulo</th>
-                                <th>Descripción</th>
-                                <th>Campaña</th>
-                                <th>Opciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {{#each galleryImages}}
-                            <tr>
-                                <td>{{title}}</td>
-                                <td>{{description}}</td>
-                                <td>{{campaign.[0].name}}</td>
-                                <td>
-                                    <a href="{{imageURL}}" target="_blank" class="btn btn-primary">
-                                        <i class="fa fa-external-link-square" aria-hidden="true"></i>
-                                    </a>
-                                    <a href="/admin/gallery/edit/{{_id}}" class="btn btn btn-info">
-                                        <i class="fa fa-pencil-square" aria-hidden="true"></i>
-                                    </a>
-                                    <a href="/admin/gallery/delete/{{_id}}" class="btn btn-danger">
-                                        <i class="fa fa-trash" aria-hidden="true"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            {{/each}}
-                        </tbody>
-
-                    </table>
+                    <div id="editorjs"></div>
                 </div>
             </div>
         </div>

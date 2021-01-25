@@ -3,7 +3,7 @@
     <div class="container">
         <div class="footer_inner row">
             <div class="col-lg-4 col-md-6 footer_logo">
-                <a href="/"><img class="logo" src="images/integrame/id_logo_white.svg" alt=""></a>
+                <a href="/"><img class="logo" src="/images/integrame/id_logo_white.svg" alt=""></a>
                 <p>
                     La organización Intégrame Down A. C. ofrece servicios especializados para 
                     el desarrollo integral de personas con síndrome de Down.
@@ -146,6 +146,14 @@
 <script>
     alert('Contact');
 </script>
+{{!-- EditorJS --}}
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
+<script>
+    const editor = new EditorJS({
+      autofocus: true
+    });
+</script>
+
 {{/if}}
 <!-- Theme js / Custom js -->
 <script src="/js/theme.js"></script>

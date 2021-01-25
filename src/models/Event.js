@@ -6,7 +6,8 @@ const Event = new Schema({
    price: Number,
    bookLink: String,
    lookEventLink: String,
-   paragraph: String,
+   // Pendiente de almacenar con editor de texto wygwys
+   paragraph: String, 
    images:  [{ type: Schema.Types.ObjectId, ref: 'Image' }],
    location: { type: Schema.Types.ObjectId, ref: 'Location' },
 });
