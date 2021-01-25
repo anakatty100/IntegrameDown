@@ -30,14 +30,14 @@
             <div class="row grid_gallery_item_inner imageGallery1">
                 {{!-- <p>{{galleryImages}}</p> --}}
                 {{#each galleryImages}}
-                <div class="col-lg-4 col-sm-6 {{campaign}}">
+                <div class="col-lg-4 col-sm-6 {{campaign._id}}">
                     <div class="grid_gallery_item">
-                        <img src="{{imageURL}}" alt="" />
+                        <img src="{{image.imageURL}}" alt="" />
                         {{!-- <img src="images/gallery-1.jpg" alt="" /> --}}
                         <div class="gallery_hover">
                             <div class="zoom_link">
-                                <a target="_blank" href="{{imageURL}}"><i class="flaticon-chain"></i></a>
-                                <a class="light" href="{{imageURL}}"><i class="flaticon-photo"></i></a>
+                                <a target="_blank" href="{{image.imageURL}}"><i class="flaticon-chain"></i></a>
+                                <a class="light" href="{{image.imageURL}}"><i class="flaticon-photo"></i></a>
                             </div>
                         </div>
                     </div>

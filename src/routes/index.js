@@ -23,9 +23,31 @@ router.get("/services/id", (req, res) => {
     res.render("service-details", { serviceDetails: true });
 });
 
-router.get("/admin", (req, res)=> {
-    res.render("admin/admin");
+router.get("/events", (req, res) => {
+    res.render("events", { events: true });
 });
+
+
+router.get("/events/:id", (req, res) => {
+    res.render("event-details", { eventDetails: true });
+});
+
+router.get("/gallery", async (req, res) => {
+
+    const galleryImages = await CampaignImage.find().populate([{
+        path: 'campaign',
+        model: 'Campaign'
+    }, {
+        path: 'image',
+        model: 'Image'
+    }]).lean();
+
+    const campaignNames = await Campaign.find({}).lean();
+
+    res.render("gallery", { gallery: true, galleryImages, campaignNames });
+});
+
+
 
 router.get("/faq", (req, res) => {
     res.render("faq", { faq: true });

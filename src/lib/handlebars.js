@@ -15,7 +15,7 @@ const helpers = {
                 console.dir(list);
                 console.dir(value);
                 console.log(value._id.toString()) */
-        if (value === undefined) {
+        if (value === undefined || value === null) {
             ret = ret + `<option selected value="">Selecciona una nueva campaña</option>`;
             list.forEach(element => {
                 ret = ret + `<option value="${element._id.toString()}">${element.year} / ${element.name} </option>`;

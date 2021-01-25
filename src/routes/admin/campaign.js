@@ -36,7 +36,7 @@ router.get("/campaign/delete/:campaign_id", async (req, res) => {
     const campaign = await Campaign.findByIdAndDelete(campaign_id);
     //Delete the CampaignImage that has the campaign related information
     //in all the matched queries
-    await CampaignImage.update({}, { $pull: { campaign: campaign_id } });
+    await CampaignImage.update({ campaign: campaign_id }, { campaign: null });
 
     res.redirect("/admin/campaign");
 });

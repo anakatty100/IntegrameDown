@@ -9,6 +9,17 @@
                     <p class="card-text mb-3">Al escribir el nombre de campaña verifica que este escrito correctamente.
                     </p>
                     <form action="/admin/gallery" method="POST" enctype="multipart/form-data">
+                        {{!--
+                        title: String,
+                        date: Date,
+                        price: Number,
+                        bookLink: String,
+                        lookEventLink: String,
+                        paragraph: String,
+                        images: [{ type: Schema.Types.ObjectId, ref: 'Image' }],
+                        location: { type: Schema.Types.ObjectId, ref: 'Location' },
+
+                        --}}
                         <div class="form-group">
                             <input class="form-control" type="text" name="title" placeholder="Título imagen">
                         </div>
@@ -53,9 +64,9 @@
                             <tr>
                                 <td>{{title}}</td>
                                 <td>{{description}}</td>
-                                <td>{{campaign.name}}</td>
+                                <td>{{campaign.[0].name}}</td>
                                 <td>
-                                    <a href="{{image.imageURL}}" target="_blank" class="btn btn-primary">
+                                    <a href="{{imageURL}}" target="_blank" class="btn btn-primary">
                                         <i class="fa fa-external-link-square" aria-hidden="true"></i>
                                     </a>
                                     <a href="/admin/gallery/edit/{{_id}}" class="btn btn btn-info">
