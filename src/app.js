@@ -38,13 +38,11 @@ app.engine(
 app.set("view engine", ".hbs");
 
 //Midlewares
-//Funciones que se ejecutan antes de llegar
-//a las rutas
 app.use(morgan("dev"));
 
 //Parse application /x-form-urlencoded
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 //Multer is a midleware that transform the incoming files (images)
 //and add them in a local folder
 const storage = multer.diskStorage({
@@ -55,17 +53,11 @@ const storage = multer.diskStorage({
 });
 app.use(multer({ storage: storage }).single("image"));
 
-//app.use(bodyParser.urlencoded({ extended: true }));
-//app.use(bodyParser.json());
-
-
 //Public
-console.log("Root dir: ", rootDir);
 app.use(express.static(path.join(rootDir, "public")));
 
 //Routes
 app.use(require("./routes/index"));
-
 app.use("/admin", require("./routes/admin/index"));
 app.use("/admin", require("./routes/admin/gallery"));
 app.use("/admin", require("./routes/admin/campaign"));
