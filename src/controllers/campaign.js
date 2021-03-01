@@ -43,10 +43,6 @@ module.exports.postEditCampaign = async (req, res) => {
 
     const { name, description, year } = req.body;
 
-    console.log({
-        name, description, year,
-    });
-
     const campaign = await Campaign.findByIdAndUpdate(campaign_id, {
         name: name,
         description: description,

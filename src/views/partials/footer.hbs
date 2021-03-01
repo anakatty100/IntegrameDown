@@ -143,9 +143,6 @@
 <!--gmaps Js-->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
 <script src="/js/gmaps.min.js"></script>
-<script>
-    alert('Contact');
-</script>
 
 {{/if}}
 <!-- Theme js / Custom js -->
@@ -153,4 +150,6 @@
 
 
 {{!-- EditorJS --}}
-<script src="/js/editorImplementation.js"></script>
+{{#if event}}
+<script src="/js/main/bundle.js"></script>
+{{/if}}

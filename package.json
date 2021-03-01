@@ -6,7 +6,7 @@
   "scripts": {
     "start": "cross-env NODE_ENV=production node src/index.js",
     "dev": "cross-env NODE_ENV=development nodemon src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build-js": "parcel build src/js/main.js --target browser --out-dir src/public/js/main --out-file bundle --no-minify --no-source-maps"
   },
   "repository": {
     "type": "git",
@@ -29,6 +29,7 @@
     "express": "^4.17.1",
     "express-handlebars": "^5.2.0",
     "express-validator": "^6.7.0",
+    "fresh": "^0.5.2",
     "fs-extra": "^9.0.1",
     "method-override": "^3.0.0",
     "mongoose": "^5.10.16",

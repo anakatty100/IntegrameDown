@@ -11,7 +11,7 @@ router.get("/events/:id", (req, res) => {
 }); */
 
 router.get("/event", (req, res) => {
-    res.render("admin/events/event_form");
+    res.render("admin/events/event_form", { event: true });
 });
 
 module.exports = router;
