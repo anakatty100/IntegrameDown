@@ -10,3 +10,6 @@
     flex-direction: column;
 }
 
+.not-found {
+  margin: 100px 0;
+}
