@@ -1,13 +1,17 @@
 /*Estilos propios*/
 
+html {
+  scroll-behavior: smooth;
+}
+
 .logo {
-    width: 70px;
-    height: auto;
-  }
+  width: 70px;
+  height: auto;
+}
 
 .container-flex {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .wild_selector_margin_top {
@@ -23,6 +27,14 @@
   padding-top: 90px;
 }
 
+.m-t-90 {
+  margin-top: 90px;
+}
+
 .not-found {
   margin: 300px 0;
+}
+
+.overflow-visible {
+  overflow: visible;
 }
