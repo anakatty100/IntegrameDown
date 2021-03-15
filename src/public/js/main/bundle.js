@@ -155,12 +155,58 @@ var define;
  *   },
  * },
  */var P=function(){function t(e){var n=this,o=e.data,r=e.config,i=e.api,a=e.readOnly;c()(this,t),this.api=i,this.readOnly=a,this.config={endpoints:r.endpoints||"",additionalRequestData:r.additionalRequestData||{},additionalRequestHeaders:r.additionalRequestHeaders||{},field:r.field||"image",types:r.types||"image/*",captionPlaceholder:this.api.i18n.t(r.captionPlaceholder||"Caption"),buttonContent:r.buttonContent||"",uploader:r.uploader||void 0,actions:r.actions||[]},this.uploader=new C({config:this.config,onUpload:function(t){return n.onUpload(t)},onError:function(t){return n.uploadingFailed(t)}}),this.ui=new m({api:i,config:this.config,onSelectFile:function(){n.uploader.uploadSelectedFile({onPreview:function(t){n.ui.showPreloader(t)}})},readOnly:a}),this.tunes=new E({api:i,actions:this.config.actions,onChange:function(t){return n.tuneToggled(t)}}),this._data={},this.data=o}var e;return l()(t,null,[{key:"isReadOnlySupported",get:function(){return!0}},{key:"toolbox",get:function(){return{icon:k.a,title:"Image"}}}]),l()(t,[{key:"render",value:function(){return this.ui.render(this.data)}},{key:"save",value:function(){var t=this.ui.nodes.caption;return this._data.caption=t.innerHTML,this.data}},{key:"renderSettings",value:function(){return this.tunes.render(this.data)}},{key:"appendCallback",value:function(){this.ui.nodes.fileButton.click()}},{key:"onPaste",value:(e=a()(r.a.mark((function t(e){var n,o,i,a,u;return r.a.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:t.t0=e.type,t.next="tag"===t.t0?3:"pattern"===t.t0?15:"file"===t.t0?18:21;break;case 3:if(n=e.detail.data,!/^blob:/.test(n.src)){t.next=13;break}return t.next=7,fetch(n.src);case 7:return o=t.sent,t.next=10,o.blob();case 10:return i=t.sent,this.uploadFile(i),t.abrupt("break",21);case 13:return this.uploadUrl(n.src),t.abrupt("break",21);case 15:return a=e.detail.data,this.uploadUrl(a),t.abrupt("break",21);case 18:return u=e.detail.file,this.uploadFile(u),t.abrupt("break",21);case 21:case"end":return t.stop()}}),t,this)}))),function(t){return e.apply(this,arguments)})},{key:"onUpload",value:function(t){t.success&&t.file?this.image=t.file:this.uploadingFailed("incorrect response: "+JSON.stringify(t))}},{key:"uploadingFailed",value:function(t){console.log("Image Tool: uploading failed because of",t),this.api.notifier.show({message:this.api.i18n.t("Couldn’t upload image. Please try another."),style:"error"}),this.ui.hidePreloader()}},{key:"tuneToggled",value:function(t){this.setTune(t,!this._data[t])}},{key:"setTune",value:function(t,e){var n=this;this._data[t]=e,this.ui.applyTune(t,e),"stretched"===t&&Promise.resolve().then((function(){var t=n.api.blocks.getCurrentBlockIndex();n.api.blocks.stretchBlock(t,e)})).catch((function(t){console.error(t)}))}},{key:"uploadFile",value:function(t){var e=this;this.uploader.uploadByFile(t,{onPreview:function(t){e.ui.showPreloader(t)}})}},{key:"uploadUrl",value:function(t){this.ui.showPreloader(t),this.uploader.uploadByUrl(t)}},{key:"data",set:function(t){var e=this;this.image=t.file,this._data.caption=t.caption||"",this.ui.fillCaption(this._data.caption),E.tunes.forEach((function(n){var o=n.name,r=void 0!==t[o]&&(!0===t[o]||"true"===t[o]);e.setTune(o,r)}))},get:function(){return this._data}},{key:"image",set:function(t){this._data.file=t||{},t&&t.url&&this.ui.fillImage(t.url)}}],[{key:"pasteConfig",get:function(){return{tags:["img"],patterns:{image:/https?:\/\/\S+\.(gif|jpe?g|tiff|png)$/i},files:{mimeTypes:["image/*"]}}}}]),t}()}]).default}));
+},{}],"W5wk":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.formValidatorHandler = void 0;
+
+var inputChangeHandler = function inputChangeHandler(e, inputs, btn, isValidInputs) {
+  for (var i = 0; i < inputs.length; i++) {
+    if (inputs[i] === e.target) {
+      isValidInputs[i] = e.target.value ? true : false;
+      break;
+    }
+  }
+
+  validateInputHandler(isValidInputs, btn);
+};
+
+var validateInputHandler = function validateInputHandler(isValidInputs, btn) {
+  var allFormIsValid = true;
+
+  for (var i = 0; i < isValidInputs.length; i++) {
+    if (isValidInputs[i] === false) {
+      allFormIsValid = false;
+      break;
+    }
+  } // console.log(isValidInputs);
+  // console.log("AllFormIsValid: ", allFormIsValid);
+
+
+  btn.disabled = !allFormIsValid;
+};
+
+var formValidatorHandler = function formValidatorHandler(inputs, btn, isValidInputs) {
+  inputs.forEach(function (input, i) {
+    input.addEventListener("input", function (ev) {
+      inputChangeHandler(ev, inputs, btn, isValidInputs);
+    });
+    isValidInputs[i] = false;
+  });
+};
+
+exports.formValidatorHandler = formValidatorHandler;
 },{}],"epB2":[function(require,module,exports) {
 "use strict";
 
 var _editorjs = _interopRequireDefault(require("@editorjs/editorjs"));
 
 var _image = _interopRequireDefault(require("@editorjs/image"));
+
+var _formValidator = require("./formValidator");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -192,7 +238,7 @@ var editor = new _editorjs.default({
 
 var saveEditorData = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(e) {
-    var outputData;
+    var outputData, formData, mergedData, response;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
@@ -203,21 +249,46 @@ var saveEditorData = /*#__PURE__*/function () {
 
           case 3:
             outputData = _context.sent;
-            console.log(outputData);
-            _context.next = 10;
+            formData = getFormData();
+            mergedData = {
+              form: formData,
+              content: outputData
+            };
+            console.log(mergedData);
+            _context.next = 9;
+            return fetch("/admin/event", {
+              method: 'POST',
+              // *GET, POST, PUT, DELETE, etc.
+              redirect: 'follow',
+              headers: {
+                'Content-Type': 'application/json' // 'Content-Type': 'application/x-www-form-urlencoded',
+
+              },
+              body: JSON.stringify(mergedData) // body data type must match "Content-Type" header
+
+            });
+
+          case 9:
+            response = _context.sent;
+
+            if (response.redirected) {
+              window.location.href = response.url;
+            }
+
+            _context.next = 16;
             break;
 
-          case 7:
-            _context.prev = 7;
+          case 13:
+            _context.prev = 13;
             _context.t0 = _context["catch"](0);
             console.error("Saving failed", _context.t0);
 
-          case 10:
+          case 16:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[0, 7]]);
+    }, _callee, null, [[0, 13]]);
   }));
 
   return function saveEditorData(_x) {
@@ -225,38 +296,19 @@ var saveEditorData = /*#__PURE__*/function () {
   };
 }();
 
+var getFormData = function getFormData() {
+  var formData = [];
+  inputs.forEach(function (input) {
+    formData.push({
+      input: input.name,
+      value: input.value
+    });
+  });
+  return formData;
+};
+
 var formEvent = document.querySelector("#form-event");
 var inputs = formEvent.querySelectorAll("input");
 var isValidInputs = [];
-
-var inputChangeHandler = function inputChangeHandler(e) {
-  for (var i = 0; i < inputs.length; i++) {
-    if (inputs[i] === e.target) {
-      isValidInputs[i] = e.target.value ? true : false;
-      break;
-    }
-  }
-
-  validateInputHandler();
-};
-
-var validateInputHandler = function validateInputHandler() {
-  var allFormIsValid = true;
-
-  for (var i = 0; i < isValidInputs.length; i++) {
-    if (isValidInputs[i] === false) {
-      allFormIsValid = false;
-      break;
-    }
-  }
-
-  console.log(isValidInputs);
-  console.log("AllFormIsValid: ", allFormIsValid);
-  saveBtn.disabled = !allFormIsValid;
-};
-
-inputs.forEach(function (input, i) {
-  input.addEventListener("input", inputChangeHandler);
-  isValidInputs[i] = false;
-});
-},{"@editorjs/editorjs":"tMZ4","@editorjs/image":"Facr"}]},{},["epB2"], null)
+(0, _formValidator.formValidatorHandler)(inputs, saveBtn, isValidInputs);
+},{"@editorjs/editorjs":"tMZ4","@editorjs/image":"Facr","./formValidator":"W5wk"}]},{},["epB2"], null)

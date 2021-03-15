@@ -32,10 +32,16 @@ router.post("/event/body-image-file", async (req, res) => {
                 "public_id": result.public_id
             }
         });
-        
+
     } catch (e) {
         console.error(e);
     }
+});
+
+router.post("/event", async (req, res) => {
+    console.log("req-body");
+    console.log(req.body);
+    res.redirect("/admin/event");
 });
 
 module.exports = router;

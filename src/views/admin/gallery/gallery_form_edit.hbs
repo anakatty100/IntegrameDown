@@ -1,36 +1,44 @@
 <div class="wild_selector_margin_top">
-    <div class="container p-4 d-flex justify-content-center">
-        <div class="col-md-4">
-            <div class="card ">
-                <div class="card-body">
-                    <h5 class="card-title">Edita la imagen de campaña</h5>
-                    <p class="card-text">La información que edites a continuación aparecera en las campañas principales.
-                    </p>
-                    <p class="card-text mb-3">Al escribir el nombre de campaña verifica que este escrito correctamente.
-                    </p>
-                    <form action="/admin/gallery/edit/{{campaignImage._id}}" method="POST" enctype="multipart/form-data">
-                        <div class="form-group">
-                            <input class="form-control" type="text" name="title" placeholder="Título imagen" value="{{campaignImage.title}}">
-                        </div>
-                        <select class="custom-select" id="inputGroupSelect01" name="campaign">
-                            {{!-- <option selected value="{{campaignImage.[0]._id}}">{{year}} / {{name}}</option> --}}
-                            {{#eachOptionWhitMatchedValue campaigns individualCamp}}
-                            {{/eachOptionWhitMatchedValue}}
-                        </select>
+    <div class="container px-4">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <div class="card ">
+                    <div class="card-body">
+                        <h5 class="card-title">Edita la imagen de campaña</h5>
+                        <p class="card-text">La información que edites a continuación aparecera en las campañas
+                            principales.
+                        </p>
+                        <p class="card-text mb-3">Al escribir el nombre de campaña verifica que este escrito
+                            correctamente.
+                        </p>
+                        <form action="/admin/gallery/edit/{{campaignImage._id}}" method="POST"
+                            enctype="multipart/form-data">
+                            <div class="form-group">
+                                <input class="form-control" type="text" name="title" placeholder="Título imagen"
+                                    value="{{campaignImage.title}}">
+                            </div>
+                            <select class="custom-select" id="inputGroupSelect01" name="campaign">
+                                {{!-- <option selected value="{{campaignImage.[0]._id}}">{{year}} / {{name}}</option> --}}
+                                {{#eachOptionWhitMatchedValue campaigns individualCamp}}
+                                {{/eachOptionWhitMatchedValue}}
+                            </select>
 
-                        <div class="form-group">
-                            <textarea name="description" id="" cols="30" rows="5" class="form-control"
-                                placeholder="Descripción imagen">{{campaignImage.description}}</textarea>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input class="custom-file-input" type="file" name="image" placeholder="Titulo imagen"
-                                id="inputGroupFile01">
-                            <label for="inputGroupFile01" class="custom-file-label">Selecciona una imagen</label>
-                        </div>
-                        <button class="btn btn-primary">Actualizar foto</button>
-                    </form>
+                            <div class="form-group">
+                                <textarea name="description" id="" cols="30" rows="5" class="form-control"
+                                    placeholder="Descripción imagen">{{campaignImage.description}}</textarea>
+                            </div>
+                            <div class="input-group mb-3">
+                                <input class="custom-file-input" type="file" name="image" placeholder="Titulo imagen"
+                                    id="inputGroupFile01">
+                                <label for="inputGroupFile01" class="custom-file-label">Selecciona una imagen</label>
+                            </div>
+                            <button class="btn btn-primary">Actualizar foto</button>
+                        </form>
+                    </div>
                 </div>
             </div>
+            <div class="col-3"></div>
         </div>
     </div>
 </div>

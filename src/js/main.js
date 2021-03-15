@@ -1,5 +1,6 @@
 import EditorJS from '@editorjs/editorjs';
 import ImageTool from '@editorjs/image';
+import { formValidatorHandler } from './formValidator';
 
 const saveBtn = document.querySelector("#save-event-btn");
 
@@ -25,41 +26,43 @@ const editor = new EditorJS({
 const saveEditorData = async (e) => {
     try {
         const outputData = await editor.save();
-        console.log(outputData);
+        const formData = getFormData();
+        const mergedData = {
+            form: formData,
+            content: outputData,
+        }
+        console.log(mergedData);
+        const response = await fetch("/admin/event", {
+            method: 'POST', // *GET, POST, PUT, DELETE, etc.
+            redirect: 'follow',
+            headers: {
+                'Content-Type': 'application/json'
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: JSON.stringify(mergedData), // body data type must match "Content-Type" header
+        });
+        if (response.redirected) {
+            window.location.href = response.url;
+        }
+
     } catch (e) {
         console.error("Saving failed", e);
     }
+}
 
+const getFormData = () => {
+    const formData = [];
+    inputs.forEach((input) => {
+        formData.push({
+            input: input.name,
+            value: input.value,
+        });
+    });
+    return formData;
 }
 
 const formEvent = document.querySelector("#form-event");
 const inputs = formEvent.querySelectorAll("input");
 const isValidInputs = [];
 
-const inputChangeHandler = (e) => {
-    for (let i = 0; i < inputs.length; i++) {
-        if (inputs[i] === e.target) {
-            isValidInputs[i] = e.target.value ? true : false;
-            break;
-        }
-    }
-    validateInputHandler();
-};
-
-const validateInputHandler = () => {
-    let allFormIsValid = true;
-    for (let i = 0; i < isValidInputs.length; i++) {
-        if (isValidInputs[i] === false) {
-            allFormIsValid = false;
-            break;
-        }
-    }
-    console.log(isValidInputs);
-    console.log("AllFormIsValid: ", allFormIsValid);
-    saveBtn.disabled = !allFormIsValid;
-};
-
-inputs.forEach((input, i) => {
-    input.addEventListener("input", inputChangeHandler);
-    isValidInputs[i] = false;
-});
+formValidatorHandler(inputs, saveBtn, isValidInputs);
