@@ -38,6 +38,7 @@
     "session": "^0.1.0"
   },
   "devDependencies": {
+    "@editorjs/image": "^2.6.0",
     "handlebars": "^4.5.0",
     "nodemon": "^2.0.6"
   }
