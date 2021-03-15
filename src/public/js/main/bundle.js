@@ -230,16 +230,14 @@ var inputs = formEvent.querySelectorAll("input");
 var isValidInputs = [];
 
 var inputChangeHandler = function inputChangeHandler(e) {
-  if (e.target.value) {
-    for (var i = 0; i < inputs.length; i++) {
-      if (inputs[i] === e.target) {
-        isValidInputs[i] = true;
-        break;
-      }
+  for (var i = 0; i < inputs.length; i++) {
+    if (inputs[i] === e.target) {
+      isValidInputs[i] = e.target.value ? true : false;
+      break;
     }
-
-    validateInputHandler();
   }
+
+  validateInputHandler();
 };
 
 var validateInputHandler = function validateInputHandler() {

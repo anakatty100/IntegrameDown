@@ -37,15 +37,13 @@ const inputs = formEvent.querySelectorAll("input");
 const isValidInputs = [];
 
 const inputChangeHandler = (e) => {
-    if (e.target.value) {
-        for(let i = 0; i < inputs.length;i++) {
-            if (inputs[i] === e.target) {
-                isValidInputs[i] = true;
-                break;
-            }
+    for (let i = 0; i < inputs.length; i++) {
+        if (inputs[i] === e.target) {
+            isValidInputs[i] = e.target.value ? true : false;
+            break;
         }
-        validateInputHandler();
     }
+    validateInputHandler();
 };
 
 const validateInputHandler = () => {
@@ -57,7 +55,7 @@ const validateInputHandler = () => {
         }
     }
     console.log(isValidInputs);
-    console.log("AllFormIsValid: ",allFormIsValid);
+    console.log("AllFormIsValid: ", allFormIsValid);
     saveBtn.disabled = !allFormIsValid;
 };
 
