@@ -6,11 +6,17 @@ const router = express.Router();
 const Event = require("../../models/Event");
 
 const cloudinaryHandler = require("../../lib/cloudinary");
-const { dateToInputDate, dateToInputTime, inputsToDate } = require("../../lib/formatTime");
+const { dateToInputDate,
+    dateToInputTime,
+    inputsToDate, sortDates } = require("../../lib/formatTime");
 
 router.get("/event", async (req, res) => {
     try {
         const result = await Event.find({}).lean();
+        console.log(result);
+        sortDates(result);
+        console.log(result);
+
         const events = result.map((item) => {
             return {
                 _id: item._id,
