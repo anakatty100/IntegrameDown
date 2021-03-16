@@ -1,6 +1,4 @@
-const { json } = require("body-parser");
 const express = require("express");
-const { route } = require("..");
 const router = express.Router();
 
 const Event = require("../../models/Event");
@@ -8,14 +6,12 @@ const Event = require("../../models/Event");
 const cloudinaryHandler = require("../../lib/cloudinary");
 const { dateToInputDate,
     dateToInputTime,
-    inputsToDate, sortDates } = require("../../lib/formatTime");
+    inputsToDate, sortEventDates } = require("../../lib/formatTime");
 
 router.get("/event", async (req, res) => {
     try {
         const result = await Event.find({}).lean();
-        console.log(result);
-        sortDates(result);
-        console.log(result);
+        sortEventDates(result);
 
         const events = result.map((item) => {
             return {
@@ -28,7 +24,7 @@ router.get("/event", async (req, res) => {
             };
         });
 
-        res.render("admin/events/event_form", { eventScript: true, events });
+        res.render("admin/events/event_form", { adminEventScript: true, events });
     } catch (e) {
         console.error(e);
     }
@@ -86,11 +82,10 @@ router.get("/event/edit/:event_id", async (req, res) => {
     const { event_id } = req.params;
     try {
         let event = await Event.findById(event_id).lean();
-        let { content } = event;
+        const content = JSON.stringify(event.content);
         event.date = dateToInputDate(event.datetime);
         event.time = dateToInputTime(event.datetime);
-        content = JSON.stringify(content);
-        res.render("admin/events/event_form_edit", { eventScript: true, event, content });
+        res.render("admin/events/event_form_edit", { adminEventScript: true, event, content });
     } catch (e) {
         console.error(e);
     }

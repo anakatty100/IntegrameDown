@@ -5,6 +5,8 @@ const CampaignImage = require("../models/CampaignImage.js");
 const Campaign = require("../models/Campaign.js");
 const Event = require("../models/Event");
 
+const { sortEventDates, dateToEsObj } = require("../lib/formatTime");
+
 //Main routes of the app
 router.get("/", (req, res) => {
     //Pass a local variable to the view index: true
@@ -25,14 +27,26 @@ router.get("/services/id", (req, res) => {
 });
 
 router.get("/events", async (req, res) => {
-    const events = await Event.find({}).lean();
-    console.log(JSON.stringify(events, null, 3));
+    const eventsData = await Event.find({}).lean();
+    sortEventDates(eventsData);
+    const events = eventsData.map((item) => {
+        const event = {
+            ...item,
+            dateTimeFormated: dateToEsObj(item.datetime),
+        };
+        return event;
+    });
+    console.log(events);
     res.render("events", { events });
 });
 
 
-router.get("/events/:id", (req, res) => {
-    res.render("event-details", { eventDetails: true });
+router.get("/events/:event_id", async (req, res) => {
+    const { event_id } = req.params;
+    let event = await Event.findById(event_id).lean();
+    event.dateTimeFormated = dateToEsObj(event.datetime);
+    const content = JSON.stringify(event.content);
+    res.render("event-details", { eventDetails: true, event, eventDetailsScript: true, content});
 });
 
 router.get("/gallery", async (req, res) => {

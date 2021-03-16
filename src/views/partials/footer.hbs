@@ -149,7 +149,12 @@
 <script src="/js/theme.js"></script>
 
 
-{{!-- EditorJS --}}
-{{#if eventScript}}
-<script src="/js/main/bundle.js"></script>
+{{!-- EditorJS Admin --}}
+{{#if adminEventScript}}
+<script src="/js/adminevent/bundle.js"></script>
+{{/if}}
+
+{{!-- EditorJS event-details --}}
+{{#if eventDetailsScript}}
+<script src="/js/eventdetails/bundle.js"></script>
 {{/if}}

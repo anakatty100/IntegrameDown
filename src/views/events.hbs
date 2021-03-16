@@ -19,18 +19,14 @@
                 <!-- Events -->
                 {{#if events}}
                 {{#each events}}
-                <div class="events_item">
-                    <a href="/events/:id" class="e_img"><img src="images/event-6.jpg" alt="" /></a>
+                <div class="events_item">   
                     <div class="media">
-                        <h2><b>21</b>August 2019</h2>
+                        <h2><b>{{dateTimeFormated.day}}</b>{{dateTimeFormated.month}} {{dateTimeFormated.year}}</h2>
                         <div class="media-body">
                             <h6>
-                                START: AUG 18, 2019
-                                <span>END: AUG 28, 2019</span>
+                                Ubicación: {{location}}
                             </h6>
-                            <a href="/events/:id" class="heding">Fundraising as a team in the workplace Many
-                                families
-                            </a>
+                            <a href="/events/{{_id}}" class="heding">{{title}}</a>
                         </div>
                     </div>
                 </div>

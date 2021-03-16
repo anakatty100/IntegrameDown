@@ -32,16 +32,36 @@ const inputsToDate = (date, time) => {
     return datetime;
 }
 
-const sortDates = (dates) => {
+const dateToEsObj = (date) => {
+    const options = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    };
+
+    const esDateComplete = date.toLocaleDateString("es-MX", options);
+    const esDateDay = date.toLocaleDateString("es-MX", { day: 'numeric' });
+    const esDateMonth = date.toLocaleDateString("es-MX", { month: 'short' });
+    const esDateYear = date.toLocaleDateString("es-MX", { year: 'numeric' });
+    const hour = date.toLocaleTimeString("es-MX", { hour: '2-digit', minute: '2-digit' });
+
+    return {
+        complete: esDateComplete,
+        day: esDateDay,
+        month: esDateMonth,
+        year: esDateYear,
+        hour: hour
+    }
+}
+
+const sortEventDates = (dates) => {
     // Implementation: Buble Sort
-    console.log(dates);
     let intercambios = 0;
     let comparaciones = 0;
     for (let i = 0; i < dates.length - 1; i++) {
         for (let j = 0; j < dates.length - i - 1; j++) {
-            console.log(i,j)
             comparaciones++
-            console.log(dates[j].datetime < dates[j+1].datetime );
             if (dates[j].datetime > dates[j + 1].datetime) {
                 intercambios++
                 //Swap of values
@@ -55,4 +75,4 @@ const sortDates = (dates) => {
     // console.log("Intercambios", intercambios);
 }
 
-module.exports = { dateToInputTime, dateToInputDate, inputsToDate, sortDates }
+module.exports = { dateToInputTime, dateToInputDate, inputsToDate, sortEventDates, dateToEsObj }

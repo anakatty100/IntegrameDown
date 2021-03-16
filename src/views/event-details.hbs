@@ -1,12 +1,12 @@
 <!-- Banner Area -->
 <div class="pages_banner pb_5">
     <div class="container">
-        <h2>Events Details</h2>
+        <h2>{{title}}</h2>
         <ol class="breadcrumb">
             <li><a href="/">Inicio</a></li>
             <li><a href="/events">Eventos</a></li>
             <li>
-                <a href="/" class="active">Detalles del evento</a>
+                <a class="active">Detalles del evento</a>
             </li>
         </ol>
     </div>
@@ -21,87 +21,33 @@
             <div class="col-lg-8 causes_left_sidebar">
                 <!-- Causes Details -->
                 <div class="donations_details p-0">
-                    <div class="causes_details_img">
-                        <img src="/images/causes-single-4.jpg" alt="" />
-                    </div>
                     <div class="datails_timar">
                         <div class="timer"></div>
-                        <a href="#" class="theme_btn book_now">Book Now !</a>
+                        <a href="{{event.bookLink}}" target="_blank" class="theme_btn book_now">Reserva tu lugar !</a>
                         <ul class="event_date">
                             <li>
-                                <i class="fa fa-map-marker"></i> 72/4 Wacker
-                                Drive, Chicago
+                                <i class="fa fa-map-marker"></i> <a target="_blank"
+                                    href="{{event.locationLink}}">{{event.location}}</a>
                             </li>
                             <li>
-                                <i class="fa fa-clock-o"></i>October,18 06:00 AM
-                                - 11:00 PM
+                                <i class="fa fa-clock-o"></i>{{event.dateTimeFormated.hour}}
                             </li>
                             <li class="money">
-                                <i class="fa fa-money"></i>$65
+                                <i class="fa fa-money"></i>${{event.price}}
                             </li>
                             <li>
-                                <i class="fa fa-calendar-o"></i>All Events +
-                                Google Calendar+ iCal Export
+                                <i class="fa fa-calendar-o"></i>{{event.dateTimeFormated.complete}}
                             </li>
                             <li>
-                                <a href="#" class="theme_btn">Look Event on Facebook</a>
+                                <a href="{{event.lookEventLink}}" target="_blank" class="theme_btn">Revisa nuestro
+                                    evento</a>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="details details_2">
-                    <h2>Many families who consider adoption cannot afford</h2>
-                    <p>
-                        People aren’t the only targets. In remote and
-                        economically poor places like these, communities and
-                        criminals alike depend on the natural environment for
-                        their survival. Armed groups like the LRA terrorize
-                        communities while funding their crimes through illegal
-                        wildlife poaching and trafficking. These cycles of
-                        violence and exploitation threaten the very existence of
-                        entire communities and their ecosystems. Joseph Kony’s
-                        army continues to be the primary threat to many
-                        communities across central Africa, but they are not the
-                        only threat.
-                    </p>
-                    <p>
-                        It’s an event that will stay with us all for a very long
-                        time. The whole thing was incredibly special from the
-                        scenery and location to the wonderful event staff and
-                        brilliant organisation. At the heart of it though is the
-                        challenge and each and every one of us had to dig deep
-                        to complete it, but that is what makes it so rewarding!
-                    </p>
-                    <img src="/images/causes-single-5.jpg" alt="" class="single_mg" />
-                    <p>
-                        This report sets out a high-level view of progress since
-                        the strategy’s launch. Alongside ongoing dialogue with
-                        the UK and international research community, we’ve
-                        sought input and challenge on our progress from
-                        supporters, patients and those affected by cancer.
-                    </p> z
-                    <h3>Event Location</h3>
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d18748.2750544035!2d90.40521272131937!3d23.847512904175364!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1519938480610"
-                        allowfullscreen></iframe>
-                    <iframe width="300" height="170" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
-                        src="https://maps.google.com/maps?q='+YOUR_LAT+','+YOUR_LON+'&hl=es&z=14&amp;output=embed">
-                    </iframe>
-                    <br />
-                    <small>
-                        <a href="https://maps.google.com/maps?q='+data.lat+','+data.lon+'&hl=es;z=14&amp;output=embed"
-                            style="color:#0000FF;text-align:left" target="_blank">
-                            See map bigger
-                        </a>
-                    </small>
-                    <p class="end_p">
-                        With support from the IKEA Foundation and INDITEX, we
-                        are working with six local microfinance institutions to
-                        launch and expand WaterCredit in Bangladesh. We are also
-                        exploring opportunities to partner with additional
-                        organizations, both financial and non-financial, to
-                        provide alternative water and sanitation solutions.
-                    </p>
+                    <h2>{{event.title}}</h2>
+                    <div id="editorjs" class=""></div>
                 </div>
             </div>
         </div>
@@ -120,3 +66,6 @@
 </section>
 
 <!-- End Customers_more Area -->
+<script>
+    var content = {{{ content }}};
+</script>
