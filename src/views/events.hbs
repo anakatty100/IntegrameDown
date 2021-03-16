@@ -14,12 +14,13 @@
 <section class="latestc_causes lc_pages">
     <div class="container">
         <div class="row">
+            <div class="col-lg-2"></div>
             <div class="col-lg-8">
                 <!-- Events -->
+                {{#if events}}
+                {{#each events}}
                 <div class="events_item">
-                    <a href="/events/:id" class="e_img"
-                        ><img src="images/event-6.jpg" alt=""
-                    /></a>
+                    <a href="/events/:id" class="e_img"><img src="images/event-6.jpg" alt="" /></a>
                     <div class="media">
                         <h2><b>21</b>August 2019</h2>
                         <div class="media-body">
@@ -27,336 +28,20 @@
                                 START: AUG 18, 2019
                                 <span>END: AUG 28, 2019</span>
                             </h6>
-                            <a href="/events/:id" class="heding"
-                                >Fundraising as a team in the workplace Many
+                            <a href="/events/:id" class="heding">Fundraising as a team in the workplace Many
                                 families
                             </a>
                         </div>
                     </div>
                 </div>
-                <!-- Events -->
-                <div class="events_item">
-                    <a href="events-details.html" class="e_img"
-                        ><img src="images/event-7.jpg" alt=""
-                    /></a>
-                    <div class="media">
-                        <h2><b>21</b>August 2019</h2>
-                        <div class="media-body">
-                            <h6>
-                                START: AUG 18, 2019
-                                <span>END: AUG 28, 2019</span>
-                            </h6>
-                            <a href="#" class="heding"
-                                >Fundraising as a team in the workplace Many
-                                families
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Events -->
-                <div class="events_item">
-                    <a href="events-details.html" class="e_img"
-                        ><img src="images/event-8.jpg" alt=""
-                    /></a>
-                    <div class="media">
-                        <h2><b>21</b>August 2019</h2>
-                        <div class="media-body">
-                            <h6>
-                                START: AUG 18, 2019
-                                <span>END: AUG 28, 2019</span>
-                            </h6>
-                            <a href="#" class="heding"
-                                >Fundraising as a team in the workplace Many
-                                families
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Events -->
-                <div class="events_item">
-                    <a href="events-details.html" class="e_img"
-                        ><img src="images/event-9.jpg" alt=""
-                    /></a>
-                    <div class="media">
-                        <h2><b>21</b>August 2019</h2>
-                        <div class="media-body">
-                            <h6>
-                                START: AUG 18, 2019
-                                <span>END: AUG 28, 2019</span>
-                            </h6>
-                            <a href="#" class="heding"
-                                >Fundraising as a team in the workplace Many
-                                families
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Events -->
-                <div class="events_item border-0 m-0">
-                    <a href="events-details.html" class="e_img"
-                        ><img src="images/event-10.jpg" alt=""
-                    /></a>
-                    <div class="media">
-                        <h2><b>21</b>August 2019</h2>
-                        <div class="media-body">
-                            <h6>
-                                START: AUG 18, 2019
-                                <span>END: AUG 28, 2019</span>
-                            </h6>
-                            <a href="#" class="heding"
-                                >Fundraising as a team in the workplace Many
-                                families
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="load_more mt-20">
-                    <a href="causes-2.html" class="theme_btn m-0">Load more</a>
-                </div>
-            </div>
-            <!-- Right sidebar -->
-            <div class="col-lg-4 right_sidebar">
-                <!-- Widget -->
-                <div class="widget">
-                    <h4>What is crowdfunding?</h4>
-                    <p>
-                        Crowdfunding is a new type of fundraising where you can
-                        raise funds for your own personal cause, even if you're
-                        not a registered charity.
-                    </p>
-                    <a href="#" class="bv_button"
-                        >BECOME A VOLUNTEER <i class="fa fa-arrow-right"></i
-                    ></a>
-                </div>
-                <!-- Widget -->
-                <div class="input-group">
-                    <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Search"
-                    />
-                    <div class="input-group-append">
-                        <span class="input-group-text"
-                            ><i class="fa fa-search"></i
-                        ></span>
-                    </div>
-                </div>
-                <!-- Widget -->
-                <div class="widget">
-                    <h3 class="w_heding">Categories</h3>
-                    <ul class="categories">
-                        <li>
-                            <a href="#" class="active"
-                                >Humanity <span>(08)</span></a
-                            >
-                        </li>
-                        <li>
-                            <a href="#">Become a Volunteer <span>(08)</span></a>
-                        </li>
-                        <li>
-                            <a href="#">How Can You Help <span>(08)</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Helping Children <span>(08)</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Safety & Privacy <span>(08)</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Education for all <span>(08)</span></a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- Widget -->
-                <div class="widget">
-                    <h3 class="w_heding">Recent Causes</h3>
-                    <div class="media r_causes first">
-                        <a href="#"
-                            ><img src="images/r-widget-1.jpg" alt=""
-                        /></a>
-                        <div class="media-left">
-                            <a href="#" class="heding"
-                                >Crowdfunding Popularity Continues
-                            </a>
-                            <h6>$5000 raised / <span>Goal: $11000</span></h6>
-                        </div>
-                    </div>
-                    <div class="media r_causes">
-                        <a href="#"
-                            ><img src="images/r-widget-2.jpg" alt=""
-                        /></a>
-                        <div class="media-left">
-                            <a href="#" class="heding"
-                                >Reported Charity Salaries May Not Tell the Full
-                                Story</a
-                            >
-                            <h6>$5000 raised / <span>Goal: $11000</span></h6>
-                        </div>
-                    </div>
-                    <div class="media r_causes">
-                        <a href="#"
-                            ><img src="images/r-widget-3.jpg" alt=""
-                        /></a>
-                        <div class="media-left">
-                            <a href="#" class="heding"
-                                >Several years ago most people probably
-                            </a>
-                            <h6>$5000 raised / <span>Goal: $11000</span></h6>
-                        </div>
-                    </div>
-                    <div class="media r_causes">
-                        <a href="#"
-                            ><img src="images/r-widget-4.jpg" alt=""
-                        /></a>
-                        <div class="media-left">
-                            <a href="#" class="heding"
-                                >Donation for Poor rural Children</a
-                            >
-                            <h6>$5000 raised / <span>Goal: $11000</span></h6>
-                        </div>
-                    </div>
-                </div>
+                {{/each}}
 
-                <!-- Widget -->
-                <div class="widget ew">
-                    <h3 class="w_heding">Upcoming Event</h3>
-                    <div
-                        class="carousel slide event_slide"
-                        data-ride="carousel"
-                    >
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <a href="#"
-                                    ><img src="images/event-5.jpg" alt=""
-                                /></a>
-                                <a href="#" class="heding"
-                                    >Help families and communities access the
-                                    medicine</a
-                                >
-                                <ul>
-                                    <li>
-                                        <span class="icon"
-                                            ><i
-                                                class="fa fa-calendar"
-                                            ></i></span
-                                        >Started on : 10.00 am to 5.00 pm
-                                        <span>( 25 July,2019 )</span>
-                                    </li>
-                                    <li>
-                                        <span class="icon"
-                                            ><i class="fa fa-map-marker"></i
-                                        ></span>
-                                        201 Creative St, NY 10021
-                                        <span>Find on Google map</span>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="carousel-item">
-                                <a href="#"
-                                    ><img src="images/event-5.jpg" alt=""
-                                /></a>
-                                <a href="#" class="heding"
-                                    >Donation for Poor rural Children the
-                                    medicine</a
-                                >
-                                <ul>
-                                    <li>
-                                        <i class="fa fa-calendar"></i>Started on
-                                        : 10.00 am to 5.00 pm
-                                        <span>( 25 July,2019 )</span>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-map-marker"></i> 201
-                                        Creative St, NY 10021
-                                        <span>Find on Google map</span>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="carousel-item">
-                                <a href="#"
-                                    ><img src="images/event-5.jpg" alt=""
-                                /></a>
-                                <a href="#" class="heding"
-                                    >Donation for Poor rural Children the
-                                    medicine</a
-                                >
-                                <ul>
-                                    <li>
-                                        <i class="fa fa-calendar"></i>Started on
-                                        : 10.00 am to 5.00 pm
-                                        <span>( 25 July,2019 )</span>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-map-marker"></i> 201
-                                        Creative St, NY 10021
-                                        <span>Find on Google map</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                {{else}}
+                <h1>Ups!</h1>
+                <p>Al parecer aun no hay eventos agendados para este año.</p>
+                {{/if}}
 
-                        <ol class="carousel-indicators">
-                            <li
-                                data-target=".event_slide"
-                                data-slide-to="0"
-                                class="active"
-                            ></li>
-                            <li
-                                data-target=".event_slide"
-                                data-slide-to="1"
-                            ></li>
-                            <li
-                                data-target=".event_slide"
-                                data-slide-to="2"
-                            ></li>
-                        </ol>
-                    </div>
-                </div>
-                <!-- Widget -->
-                <div class="widget supporters_w">
-                    <h3 class="w_heding">Supporters <span>325</span></h3>
-                    <div class="media supporters">
-                        <img src="images/r-widget-5.jpg" alt="" />
-                        <div class="media-left">
-                            <a href="#"
-                                >Emran Khan <span>25 July,2019 </span></a
-                            >
-                            <h6>All the love to Uttara</h6>
-                        </div>
-                    </div>
-                    <div class="media supporters">
-                        <img src="images/r-widget-5.jpg" alt="" />
-                        <div class="media-left">
-                            <a href="#"
-                                >Amanda Ferrari <span>25 July,2019 </span></a
-                            >
-                            <h3>$20.00</h3>
-                        </div>
-                    </div>
-                    <div class="media supporters">
-                        <img src="images/r-widget-5.jpg" alt="" />
-                        <div class="media-left">
-                            <a href="#"
-                                >Charlotte Fisk <span>25 July,2019 </span></a
-                            >
-                            <h3>$40.00</h3>
-                        </div>
-                    </div>
-                    <div class="media supporters">
-                        <img src="images/r-widget-5.jpg" alt="" />
-                        <div class="media-left border-0">
-                            <a href="#"
-                                >Dana Hayden <span>25 July,2019 </span></a
-                            >
-                            <h6>
-                                You’re amazing for doing this! Get better fast
-                                gazipur
-                            </h6>
-                            <h3>$60.00</h3>
-                        </div>
-                    </div>
-                    <a href="#" class="theme_btn">Show More</a>
-                </div>
+
             </div>
         </div>
     </div>
@@ -366,20 +51,11 @@
 <!-- Quickly and Easily Area -->
 <section class="quickly_easily">
     <div class="container">
-        <h2>
-            Quickly and Easily Find the right Charity 953,128 people raising
-            funds now
-        </h2>
-        <p>
-            We do not compare all brands in the market, or all products offered
-            by all brands. We do not arrange products from these brands for you
-            directly, but we will refer you to our trusted partner who can.
-            Learn more about our partnership
-        </p>
-        <a href="#" class="theme_btn">Get Started</a>
-        <a href="#" class="call_support"
-            ><i class="flaticon-phone"></i> +88 01682648101</a
-        >
+        <h2>Ayudamos a desarrollar al máximo las capacidades de las personas con síndrome de Down </h2>
+        <p>Nuestra organización cuenta con diferentes actividades que propician el desarrollo integral de nuestros
+            integrantes en todos los entornos. ¿Quieres conocernos? </p>
+        <a href="#" class="theme_btn">Más información</a>
+        <a href="tel:+524448252431" class="call_support"><i class="flaticon-phone"></i> +52 444-825-2431</a>
     </div>
 </section>
 <!-- Quickly and Easily Area -->

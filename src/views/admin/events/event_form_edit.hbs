@@ -8,29 +8,38 @@
                         <p class="card-text mb-3"> Asegurate de actualizar toda la información de tu evento para que sea
                             almacenado correctamente.
                         </p>
-                        <form action="/admin/event/edit/{{event._id}}" method="POST" enctype="multipart/form-data" id="form-event">
+                        <form action="/admin/event/edit/{{event._id}}" method="POST" enctype="multipart/form-data"
+                            id="form-event">
 
                             <div class="form-group">
-                                <input class="form-control" type="text" name="title" placeholder="Título evento" value="{{event.title}}">
+                                <input class="form-control" type="text" name="title" placeholder="Título evento"
+                                    value="{{event.title}}">
                             </div>
                             <div class="form-group">
-                                <input class="form-control" type="datetime-local" name="date" value="{{event.date}}T{{event.hour}}">
+                                <input class="form-control" type="date" name="date" value="{{event.date}}">
                             </div>
                             <div class="form-group">
-                                <input class="form-control" type="number" name="price" placeholder="Precio del evento" value="{{event.price}}">
+                                <input class="form-control" type="time" name="time" value="{{event.time}}">
                             </div>
                             <div class="form-group">
-                                <input class="form-control" type="text" name="location" placeholder="Ubicación" value="{{event.location}}">
+                                <input class="form-control" type="number" name="price" placeholder="Precio del evento"
+                                    value="{{event.price}}">
                             </div>
                             <div class="form-group">
-                                <input class="form-control" type="text" name="locationLink" placeholder="Liga de la ubicación" value="{{event.locationLink}}">
+                                <input class="form-control" type="text" name="location" placeholder="Ubicación"
+                                    value="{{event.location}}">
                             </div>
                             <div class="form-group">
-                                <input class="form-control" type="url" name="bookLink" placeholder="Liga de registro" value="{{event.bookLink}}">
+                                <input class="form-control" type="text" name="locationLink"
+                                    placeholder="Liga de la ubicación" value="{{event.locationLink}}">
                             </div>
                             <div class="form-group">
-                                <input class="form-control" type="url" name="eventLink"
-                                    placeholder="Liga de evento" value="{{event.lookEventLink}}">
+                                <input class="form-control" type="url" name="bookLink" placeholder="Liga de registro"
+                                    value="{{event.bookLink}}">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" type="url" name="eventLink" placeholder="Liga de evento"
+                                    value="{{event.lookEventLink}}">
                             </div>
                         </form>
                     </div>
@@ -50,6 +59,6 @@
 </div>
 
 <script>
-    var content = {{{content}}};
+    var content = {{{ content }}};
     console.log(content);
 </script>

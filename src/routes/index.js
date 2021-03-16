@@ -3,6 +3,7 @@ const router = express.Router();
 
 const CampaignImage = require("../models/CampaignImage.js");
 const Campaign = require("../models/Campaign.js");
+const Event = require("../models/Event");
 
 //Main routes of the app
 router.get("/", (req, res) => {
@@ -23,8 +24,10 @@ router.get("/services/id", (req, res) => {
     res.render("service-details", { serviceDetails: true });
 });
 
-router.get("/events", (req, res) => {
-    res.render("events", { events: true });
+router.get("/events", async (req, res) => {
+    const events = await Event.find({}).lean();
+    console.log(JSON.stringify(events, null, 3));
+    res.render("events", { events });
 });
 
 
