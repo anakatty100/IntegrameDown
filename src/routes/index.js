@@ -46,7 +46,14 @@ router.get("/events/:event_id", async (req, res) => {
     let event = await Event.findById(event_id).lean();
     event.dateTimeFormated = dateToEsObj(event.datetime);
     const content = JSON.stringify(event.content);
-    res.render("event-details", { eventDetails: true, event, eventDetailsScript: true, content});
+    const dateEventDetail = JSON.stringify(event.datetime);
+    res.render("event-details", {
+        eventDetails: true,
+        eventDetailsScript: true,
+        event,
+        content,
+        dateEventDetail
+    });
 });
 
 router.get("/gallery", async (req, res) => {
