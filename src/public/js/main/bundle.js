@@ -182,10 +182,10 @@ var validateInputHandler = function validateInputHandler(isValidInputs, btn) {
       allFormIsValid = false;
       break;
     }
-  } // console.log(isValidInputs);
-  // console.log("AllFormIsValid: ", allFormIsValid);
+  }
 
-
+  console.log(isValidInputs);
+  console.log("AllFormIsValid: ", allFormIsValid);
   btn.disabled = !allFormIsValid;
 };
 
@@ -194,7 +194,7 @@ var formValidatorHandler = function formValidatorHandler(inputs, btn, isValidInp
     input.addEventListener("input", function (ev) {
       inputChangeHandler(ev, inputs, btn, isValidInputs);
     });
-    isValidInputs[i] = false;
+    isValidInputs[i] = input.value ? true : false;
   });
 };
 
@@ -230,15 +230,17 @@ var editor = new _editorjs.default({
       }
     }
   },
+  data: typeof content !== 'undefined' ? content : {},
   onReady: function onReady() {
     //Activate button for saving
     saveBtn.addEventListener("click", saveEditorData);
-  }
+  },
+  minHeight: 50
 });
 
 var saveEditorData = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(e) {
-    var outputData, formData, mergedData, response;
+    var outputData, formData, mergedData, URL, response;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
@@ -255,8 +257,10 @@ var saveEditorData = /*#__PURE__*/function () {
               content: outputData
             };
             console.log(mergedData);
-            _context.next = 9;
-            return fetch("/admin/event", {
+            URL = document.querySelector("form").getAttribute("action");
+            console.log(URL);
+            _context.next = 11;
+            return fetch(URL, {
               method: 'POST',
               // *GET, POST, PUT, DELETE, etc.
               redirect: 'follow',
@@ -268,27 +272,27 @@ var saveEditorData = /*#__PURE__*/function () {
 
             });
 
-          case 9:
+          case 11:
             response = _context.sent;
 
             if (response.redirected) {
               window.location.href = response.url;
             }
 
-            _context.next = 16;
+            _context.next = 18;
             break;
 
-          case 13:
-            _context.prev = 13;
+          case 15:
+            _context.prev = 15;
             _context.t0 = _context["catch"](0);
             console.error("Saving failed", _context.t0);
 
-          case 16:
+          case 18:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[0, 13]]);
+    }, _callee, null, [[0, 15]]);
   }));
 
   return function saveEditorData(_x) {

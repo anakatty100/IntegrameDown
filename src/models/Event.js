@@ -2,14 +2,14 @@ const { model, Schema } = require("mongoose");
 
 const Event = new Schema({
    title: String,
-   date: Date,
+   date: String,
+   hour: String,
    price: Number,
+   location: String,
+   locationLink: String,
    bookLink: String,
    lookEventLink: String,
-   // Pendiente de almacenar con editor de texto wygwys
-   paragraph: String, 
-   images:  [{ type: Schema.Types.ObjectId, ref: 'Image' }],
-   location: { type: Schema.Types.ObjectId, ref: 'Location' },
+   content: Object,
 });
 
 module.exports = model('Event', Event);

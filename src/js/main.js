@@ -17,10 +17,13 @@ const editor = new EditorJS({
             }
         }
     },
+    
+    data: (typeof content !== 'undefined') ? content: {},
     onReady: () => {
         //Activate button for saving
         saveBtn.addEventListener("click", saveEditorData);
-    }
+    },
+    minHeight: 50,
 });
 
 const saveEditorData = async (e) => {
@@ -32,7 +35,9 @@ const saveEditorData = async (e) => {
             content: outputData,
         }
         console.log(mergedData);
-        const response = await fetch("/admin/event", {
+        const URL = document.querySelector("form").getAttribute("action");
+        console.log(URL);
+        const response = await fetch(URL, {
             method: 'POST', // *GET, POST, PUT, DELETE, etc.
             redirect: 'follow',
             headers: {

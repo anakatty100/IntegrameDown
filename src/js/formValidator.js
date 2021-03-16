@@ -16,8 +16,8 @@ const validateInputHandler = (isValidInputs, btn) => {
             break;
         }
     }
-    // console.log(isValidInputs);
-    // console.log("AllFormIsValid: ", allFormIsValid);
+    console.log(isValidInputs);
+    console.log("AllFormIsValid: ", allFormIsValid);
     btn.disabled = !allFormIsValid;
 };
 
@@ -28,7 +28,7 @@ export const formValidatorHandler = (inputs, btn, isValidInputs) => {
         input.addEventListener("input", (ev) => {
             inputChangeHandler(ev, inputs, btn, isValidInputs);
         });
-        isValidInputs[i] = false;
+        isValidInputs[i] = input.value ? true : false;
     });
 }
 

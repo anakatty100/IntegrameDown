@@ -1,6 +1,46 @@
 <div class="wild_selector_margin_top">
-    <div class="container px-4">
+    <div class="container">
         <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Titulo</th>
+                                    <th>Fecha</th>
+                                    <th>Hora</th>
+                                    <th>Precio</th>
+                                    <th>Ubicación</th>
+                                    <th>Opciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each events}}
+                                <tr>
+                                    <td>{{title}}</td>
+                                    <td>{{date}}</td>
+                                    <td>{{hour}}</td>
+                                    <td>{{price}}</td>
+                                    <td>{{location}}</td>
+                                    <td>
+                                        <a href="/admin/event/edit/{{_id}}" class="btn btn btn-info">
+                                            <i class="fa fa-pencil-square" aria-hidden="true"></i>
+                                        </a>
+                                        <a href="/admin/event/delete/{{_id}}" class="btn btn-danger">
+                                            <i class="fa fa-trash" aria-hidden="true"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row pt-5">
             <div class="col-lg-4">
                 <div class="card ">
                     <div class="card-body">
@@ -20,16 +60,16 @@
                                 <input class="form-control" type="number" name="price" placeholder="Precio del evento">
                             </div>
                             <div class="form-group">
-                                <input class="form-control" type="text" name="lookEventLink" placeholder="Ubicación">
+                                <input class="form-control" type="text" name="location" placeholder="Ubicación">
                             </div>
                             <div class="form-group">
-                                <input class="form-control" type="text" name="lookEventLink" placeholder="Liga de la ubicación">
+                                <input class="form-control" type="text" name="locationLink" placeholder="Liga de la ubicación">
                             </div>
                             <div class="form-group">
                                 <input class="form-control" type="url" name="bookLink" placeholder="Liga de registro">
                             </div>
                             <div class="form-group">
-                                <input class="form-control" type="url" name="lookEventLink"
+                                <input class="form-control" type="url" name="eventLink"
                                     placeholder="Liga de evento">
                             </div>
                         </form>

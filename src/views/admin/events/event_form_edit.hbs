@@ -1,0 +1,55 @@
+<div class="wild_selector_margin_top">
+    <div class="container p-6">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="card ">
+                    <div class="card-body">
+                        <h5 class="card-title">Edita este evento</h5>
+                        <p class="card-text mb-3"> Asegurate de actualizar toda la información de tu evento para que sea
+                            almacenado correctamente.
+                        </p>
+                        <form action="/admin/event/edit/{{event._id}}" method="POST" enctype="multipart/form-data" id="form-event">
+
+                            <div class="form-group">
+                                <input class="form-control" type="text" name="title" placeholder="Título evento" value="{{event.title}}">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" type="datetime-local" name="date" value="{{event.date}}T{{event.hour}}">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" type="number" name="price" placeholder="Precio del evento" value="{{event.price}}">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" type="text" name="location" placeholder="Ubicación" value="{{event.location}}">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" type="text" name="locationLink" placeholder="Liga de la ubicación" value="{{event.locationLink}}">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" type="url" name="bookLink" placeholder="Liga de registro" value="{{event.bookLink}}">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" type="url" name="eventLink"
+                                    placeholder="Liga de evento" value="{{event.lookEventLink}}">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-5 pt-lg-0 col-lg-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Contenido</h5>
+                        <div id="editorjs" class=""></div>
+                        <button class="btn btn-primary" id="save-event-btn">Guardar evento</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var content = {{{content}}};
+    console.log(content);
+</script>
