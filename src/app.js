@@ -62,7 +62,6 @@ app.use("/admin", require("./routes/admin/index"));
 app.use("/admin", require("./routes/admin/gallery"));
 app.use("/admin", require("./routes/admin/campaign"));
 app.use("/admin", require("./routes/admin/event"));
-app.use("/admin", require("./routes/admin/service"));
 
 app.use((req, res)=>{
     res.render("404");

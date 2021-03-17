@@ -368,36 +368,33 @@
         <div class="row">
             <div class="col-xl-6 event_left">
                 <img src="images/event.jpg" alt="">
+                {{#if firstEvent}}
                 <div class="event media  wow fadeInUp">
-                    <h2><b>21</b>July 2019</h2>
+                    <h2><b>{{firstEvent.dateTimeFormated.day}}</b>{{firstEvent.dateTimeFormated.month}} {{firstEvent.dateTimeFormated.year}}</h2>
                     <div class="media-body">
-                        <h6>START: JUL 18, 2019 <span>END: JUL 18, 2019</span></h6>
-                        <a href="#">Fundraising as a team in the workplace </a>
+                        <h6>
+                            Ubicación: {{firstEvent.location}}
+                        </h6>
+                        <a href="/events/{{firstEvent._id}}" class="heding">{{firstEvent.title}}</a>
                     </div>
                 </div>
+                {{/if}}
             </div>
+
             <div class="col-xl-6 event_right">
+                {{#if events}}
+                {{#each events}}
                 <div class="event media wow fadeInUp">
-                    <h2><b>16</b>July 2019</h2>
+                    <h2><b>{{dateTimeFormated.day}}</b>{{dateTimeFormated.month}} {{dateTimeFormated.year}}</h2>
                     <div class="media-body">
-                        <h6>START: JUL 18, 2019 <span>END: JUL 18, 2019</span></h6>
-                        <a href="#">Donor finding program for all globalization</a>
+                        <h6>
+                            Ubicación: {{location}}
+                        </h6>
+                        <a href="/events/{{_id}}" class="heding">{{title}}</a>
                     </div>
                 </div>
-                <div class="event media wow fadeInUp" data-wow-delay="0.3s">
-                    <h2><b>19</b>July 2019</h2>
-                    <div class="media-body">
-                        <h6>START: JUL 18, 2019 <span>END: JUL 18, 2019</span></h6>
-                        <a href="#">Help support Ceebass' family in the challenging times…</a>
-                    </div>
-                </div>
-                <div class="event media wow fadeInUp" data-wow-delay="0.6s">
-                    <h2><b>26</b>July 2019</h2>
-                    <div class="media-body">
-                        <h6>START: JUL 18, 2019 <span>END: JUL 18, 2019</span></h6>
-                        <a href="#">Fund cancer treatment for Danielle that is not available</a>
-                    </div>
-                </div>
+                {{/each}}
+                {{/if}}
             </div>
         </div>
     </div>
@@ -476,58 +473,8 @@
 </section>
 <!-- Testimonial Area -->
 
-<!-- Latest Charity News  -->
-<!-- <section class="latest_news">
-        <div class="container">
-            <div class="tittle_2">
-                <h2>¿Tienes alguna duda o comentario? No dudes en dejarlo en la caja debajo</h2>
-                <a href="#" class="theme_btn">Get More</a>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 wow fadeIn">
-                    <div class="news_items">
-                        <div class="news_img">
-                            <img src="images/news-1.jpg" alt="">
-                            <a href="blog_single.html" class="theme_btn">Read more</a>
-                        </div>
-                        <a href="blog_single.html" class="heding">Crowdfunding Popularity Continues to Soar Despite
-                            Risks to Donors</a>
-                        <p>Several years ago most people probably had never heard the word crowdfunding Defined as the
-                            pro-cess of funding a project...</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeIn" data-wow-delay="0.3s">
-                    <div class="news_items">
-                        <div class="news_img">
-                            <img src="images/news-2.jpg" alt="">
-                            <a href="blog_single.html" class="theme_btn">Read more</a>
-                        </div>
-                        <a href="blog_single.html" class="heding">Costly and Continuous Kars4Kids Ads Disguise Charity's
-                            Real Purpose</a>
-                        <p>Mixing insurance and tax doesn’t need be complicat-ed. To prove it, we explain Lifetime
-                            Health Cover Loading, the Medicare</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeIn" data-wow-delay="0.3s">
-                    <div class="news_items">
-                        <div class="news_img">
-                            <img src="images/news-3.jpg" alt="">
-                            <a href="blog_single.html" class="theme_btn">Read more</a>
-                        </div>
-                        <a href="blog_single.html" class="heding">Reported Charity Salaries May Not Tell the Full
-                            Story</a>
-                        <p>One covers you for private hospital treatment, the other for treatment elsewhere. It’s simple
-                            enough to get covered by either,</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    -->
-<!-- Latest Charity News  -->
-
 <!--  Crowdhope Charity -->
-<section class="crowdhope_charity p-t-90 overflow-visible" id="contact-section" >
+<section class="crowdhope_charity p-t-90 overflow-visible" id="contact-section">
     <div class="container">
         <h2>Nuestra misión es acompañarlos en el camino, explora nuestros servicios de ayuda</h2>
         <div class="row">

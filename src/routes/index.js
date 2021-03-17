@@ -8,9 +8,20 @@ const Event = require("../models/Event");
 const { sortEventDates, dateToEsObj } = require("../lib/formatTime");
 
 //Main routes of the app
-router.get("/", (req, res) => {
+router.get("/", async (req, res) => {
     //Pass a local variable to the view index: true
-    res.render("index", { index: true });
+    const eventsData = await Event.find({}).lean();
+    sortEventDates(eventsData);
+    let events = eventsData.map((item) => {
+        const event = {
+            ...item,
+            dateTimeFormated: dateToEsObj(item.datetime),
+        };
+        return event;
+    });
+    const firstEvent = events[0];
+    events = events.slice(1, 4);
+    res.render("index", { index: true, events, firstEvent });
 });
 
 router.get("/about", (req, res) => {
@@ -78,7 +89,7 @@ router.get("/faq", (req, res) => {
 });
 
 router.get("/contact", (req, res) => {
-    res.render("contact", { contact: true });
+    res.render("contact", { contact: true, contactScript: true });
 });
 
 module.exports = router;
