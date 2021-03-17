@@ -14,7 +14,6 @@ const Location = require("./models/Location");
 
 */
 
-
 const images = [
     {
             

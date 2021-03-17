@@ -6,7 +6,6 @@ const {
     inputsToDate, sortEventDates
 } = require("../lib/formatTime");
 
-
 module.exports.postEditorJsImage = async (req, res) => {
     try {
         const result = await cloudinaryHandler.upload(req.file.path);

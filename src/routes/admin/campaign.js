@@ -1,9 +1,6 @@
 const express = require("express");
 const router = express.Router();
 
-const Campaign = require("../../models/Campaign.js");
-const CampaignImage = require("../../models/CampaignImage");
-
 const campaignController = require("../../controllers/campaign");
 
 /* 

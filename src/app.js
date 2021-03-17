@@ -15,9 +15,6 @@ const rootDir = require("./lib/path");
 const app = express();
 app.use(methodOverride('_method'));
 
-
-
-
 //Settings
 app.set("port", process.env.PORT || 5000);
 app.set("views", path.join(rootDir, "views"));
@@ -51,6 +48,7 @@ const storage = multer.diskStorage({
         callback(null, new Date().getTime() + path.extname(file.originalname));
     }
 });
+
 app.use(multer({ storage: storage }).single("image"));
 
 //Public
