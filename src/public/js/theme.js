@@ -382,8 +382,8 @@
             icon: $marker,
             infoWindow: {
                 content: $info
-            }
-        })
+            },
+        });
     };
 
     // Scroll to top
